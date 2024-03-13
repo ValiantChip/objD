@@ -187,7 +187,7 @@ class Item {
     if (model != null) t['CustomModelData'] = model;
     if (hideFlags != null) t['HideFlags'] = hideFlags;
     if (name != null) {
-      final n = name.toMap();
+      final n = name.toJson();
 
       t['display'] = t['display'] ?? {};
 
@@ -200,7 +200,7 @@ class Item {
     }
     if (lore != null) {
       t['display'] = t['display'] ?? {};
-      t['display']['Lore'] = lore.map((lor) => lor.toMap()).toList();
+      t['display']['Lore'] = lore.map((lor) => lor.toJson()).toList();
     }
   }
 
