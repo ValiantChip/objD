@@ -33,3 +33,4 @@ export 'types/attribute.dart';
 export 'types/pose.dart';
 export 'types/biomes.dart';
 export 'types/transformation.dart';
+export 'types/sound.dart';
