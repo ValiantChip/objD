@@ -23,6 +23,6 @@ class PlaySound extends RestActionAble {
         if(minVolume > 1 || minVolume < 0){
             throw('minVolume cannot be greater than 1 or less than 0');
         }
-        return Command('playsound $sound $source ${target != null ? target : "@s"} $position $volume $pitch $minVolume');
+        return Command('playsound $sound $source ${target ?? "@s"} $position $volume $pitch $minVolume');
     }
 }
