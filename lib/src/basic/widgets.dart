@@ -36,3 +36,4 @@ export 'types/transformation.dart';
 export 'types/sound.dart';
 export 'types/modifier.dart';
 export 'types/banner_pattern.dart';
+export 'types/bee.dart';
