@@ -2,12 +2,12 @@ import 'package:objd/core.dart';
 import 'package:gson/gson.dart';
 
 class Modifier {
-  ModifierType type;
-  ModifierSlot slot;
-  List<int> uuid;
-  late String name;
-  Double amount;
-  ModifierOperation operation;
+  final ModifierType type;
+  final ModifierSlot slot;
+  final List<int> uuid;
+  late final String name;
+  final Double amount;
+  final ModifierOperation operation;
 
 
   Modifier({required this.type, required this.slot, required this.uuid, required this.amount, required this.operation}){
