@@ -18,7 +18,7 @@ class BannerPattern {
     };
   }
 
-  String toJson() {
+  String getNbt() {
     return gson.encode(getMap());
   }
 }

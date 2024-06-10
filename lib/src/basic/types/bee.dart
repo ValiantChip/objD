@@ -15,7 +15,7 @@ class Bee {
     };
   }
 
-  String getJson() {
+  String getNbt() {
     return gson.encode(getMap());
   }
 }
