@@ -40,3 +40,8 @@ export 'types/bee.dart';
 export 'types/block_predicate.dart';
 export 'types/can_use_with.dart';
 export 'types/container.dart';
+export 'types/container_loot.dart';
+export 'types/color.dart';
+export 'types/enchantments.dart';
+export 'types/dyed_color.dart';
+export 'types/enchantment.dart';
