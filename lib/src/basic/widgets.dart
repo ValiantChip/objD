@@ -45,3 +45,5 @@ export 'types/color.dart';
 export 'types/enchantments.dart';
 export 'types/dyed_color.dart';
 export 'types/enchantment.dart';
+export 'types/firework_explosion.dart';
+export 'types/fireworks.dart';
