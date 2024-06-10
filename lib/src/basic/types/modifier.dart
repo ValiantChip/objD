@@ -1,8 +1,9 @@
 import 'package:objd/core.dart';
+import 'package:gson/gson.dart';
 
 class Modifier {
-  ModifierSlot slot;
   ModifierType type;
+  ModifierSlot slot;
   List<int> uuid;
   late String name;
   Double amount;
@@ -11,6 +12,21 @@ class Modifier {
 
   Modifier({required this.type, required this.slot, required this.uuid, required this.amount, required this.operation}){
     name = type.name;
+  }
+
+  Map<String, dynamic> getMap(){
+    return {
+      'type': type.name,
+      'slot':slot.name,
+      'uuid':uuid,
+      'name':name,
+      'amount':amount,
+      'operation':operation.name
+    };
+  }
+
+  String getNbt(){
+    return gson.encode(getMap());
   }
 }
 
