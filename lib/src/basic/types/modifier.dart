@@ -2,7 +2,7 @@ import 'package:objd/core.dart';
 import 'package:gson/gson.dart';
 
 class Modifier {
-  final ModifierType type;
+  final AttributeType type;
   final ModifierSlot slot;
   final List<int> uuid;
   late final String name;
@@ -11,12 +11,12 @@ class Modifier {
 
 
   Modifier({required this.type, required this.slot, required this.uuid, required this.amount, required this.operation}){
-    name = type.name;
+    name = type.toString();
   }
 
   Map<String, dynamic> getMap(){
     return {
-      'type': type.name,
+      'type': type.toString(),
       'slot':slot.name,
       'uuid':uuid,
       'name':name,
@@ -44,32 +44,6 @@ enum ModifierSlot {
 
   const ModifierSlot(this.name);
 
-  final String name;
-}  
-
-enum ModifierType {
-  armor('generic.armor'),
-  armor_toughness('generic.armor_toughness'),
-  attack_damage('generic.attack_damage'),
-  attack_speed('generic.attack_speed'),
-  block_break_speed('player.block_break_speed'),
-  block_interaction_range('player.block_interaction_range'),
-  entity_interaction_range('player.entity_interaction_range'),
-  fall_damage_multiplier('generic.fall_damage_multiplier'),
-  follow_range('generic.follow_range'),
-  gravity('generic.gravity'),
-  jump_strength('generic.jump_strength'),
-  knockback_resistance('generic.knockback_resistance'),
-  luck('generic.luck'),
-  max_absorption('generic.max_absorption'),
-  max_health('generic.max_health'),
-  movement_speed('generic.movement_speed'),
-  safe_fall_distance('generic.safe_fall_distance'),
-  scale('generic.scale'),
-  step_height('generic.step_height'),
-;
-  const ModifierType(this.name);
-  
   final String name;
 }
 
