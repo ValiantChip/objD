@@ -37,3 +37,6 @@ export 'types/sound.dart';
 export 'types/modifier.dart';
 export 'types/banner_pattern.dart';
 export 'types/bee.dart';
+export 'types/block_predicate.dart';
+export 'types/can_use_with.dart';
+export 'types/container.dart';
