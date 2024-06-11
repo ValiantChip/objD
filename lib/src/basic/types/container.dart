@@ -8,7 +8,7 @@ class Container {
 
   Map<String, dynamic> getMap(){
     return {
-      'container':container.map((s) => s.getNbt())
+      'container':container.map((s) => s.getNbt()).toList()
     };
   }
 

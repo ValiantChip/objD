@@ -1204,6 +1204,7 @@ class EntityType {
   const EntityType(this.type);
 
   @override
+  // ignore: non_nullable_equals_parameter
   bool operator ==(dynamic other) {
     if (other is EntityType && other.type == type) {
       return true;

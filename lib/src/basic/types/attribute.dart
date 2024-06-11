@@ -89,6 +89,7 @@ class AttributeType {
   const AttributeType(this.type);
 
   @override
+  // ignore: non_nullable_equals_parameter
   bool operator ==(dynamic other) {
     if (other is AttributeType && other.type == type) {
       return true;

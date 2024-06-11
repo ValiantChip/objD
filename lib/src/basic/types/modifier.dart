@@ -1,10 +1,10 @@
-import 'package:objd/core.dart';
 import 'package:gson/gson.dart';
+import 'package:objd/src/basic/widgets.dart';
 
 class Modifier {
   final AttributeType type;
   final ModifierSlot slot;
-  final List<int> uuid;
+  final UUID uuid;
   late final String name;
   final Double amount;
   final ModifierOperation operation;
@@ -18,7 +18,7 @@ class Modifier {
     return {
       'type': type.toString(),
       'slot':slot.name,
-      'uuid':uuid,
+      'uuid':uuid.toString(),
       'name':name,
       'amount':amount,
       'operation':operation.name

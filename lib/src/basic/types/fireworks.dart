@@ -5,16 +5,12 @@ class Fireworks {
   final List<FireworkExplosion> explosions;
   final int flight_duration;
 
-  const Fireworks({required this.explosions, this.flight_duration = 1}) : 
-    assert(
-      flight_duration > -129 && flight_duration < 128, 
-      'flight_duration must be an int8'  
-    );
+  const Fireworks({required this.explosions, this.flight_duration = 1});
 
   Map<String, dynamic> getMap() {
     return {
-      "explosions" : explosions.map((e) => e.getNbt()),
-      "flight_duration":flight_duration
+      "explosions" : explosions.map((e) => e.getNbt()).toList(),
+      "flight_duration":Byte(flight_duration)
     };
   }
 

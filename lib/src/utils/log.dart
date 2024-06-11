@@ -1,8 +1,4 @@
-import 'package:objd/src/basic/types/entity.dart';
-import 'package:objd/src/basic/rest_action.dart';
-import 'package:objd/src/basic/score.dart';
-import 'package:objd/src/basic/text_components.dart';
-import 'package:objd/src/basic/widget.dart';
+import 'package:objd/src/basic/widgets.dart';
 import 'package:objd/src/build/context.dart';
 import 'package:objd/src/wrappers/comment.dart';
 import 'package:objd/src/wrappers/tellraw.dart';

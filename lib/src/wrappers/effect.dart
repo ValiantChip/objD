@@ -38,8 +38,8 @@ class Effect extends RestActionAble implements GsonValue {
   /// ```
   Effect.clear(this.entity, [this.effect]) : _type = 'clear';
 
-  Map getMap() {
-    var ret = {};
+  Map<String, dynamic> getMap() {
+    var ret = <String, dynamic>{};
     if (effect != null) ret['id'] = EffectType.values.indexOf(effect!) + 1;
     ret['amplifier'] = Byte(amplifier != null ? amplifier! - 1 : 0);
     ret['duration'] = duration != null ? duration!.ticks : 0;

@@ -1,5 +1,4 @@
-
-enum Enchantment {
+class EnchantmentTypes{
   /*[[[cog
   import cog
   import requests
@@ -12,95 +11,97 @@ enum Enchantment {
       full = l.decode('UTF-8')
       id = full.split(':')[1]
       blocks.append(id)
-      cog.outl(f"{id}(\"{full}\"),\n")
+      cog.outl(f"static const Enchantment {id} = Enchantment('{full}');\n")
   ]]]*/
-  aqua_affinity("minecraft:aqua_affinity"),
+  static const Enchantment aqua_affinity = Enchantment('minecraft:aqua_affinity');
 
-  bane_of_arthropods("minecraft:bane_of_arthropods"),
+  static const Enchantment bane_of_arthropods = Enchantment('minecraft:bane_of_arthropods');
 
-  binding_curse("minecraft:binding_curse"),
+  static const Enchantment binding_curse = Enchantment('minecraft:binding_curse');
 
-  blast_protection("minecraft:blast_protection"),
+  static const Enchantment blast_protection = Enchantment('minecraft:blast_protection');
 
-  breach("minecraft:breach"),
+  static const Enchantment breach = Enchantment('minecraft:breach');
 
-  channeling("minecraft:channeling"),
+  static const Enchantment channeling = Enchantment('minecraft:channeling');
 
-  density("minecraft:density"),
+  static const Enchantment density = Enchantment('minecraft:density');
 
-  depth_strider("minecraft:depth_strider"),
+  static const Enchantment depth_strider = Enchantment('minecraft:depth_strider');
 
-  efficiency("minecraft:efficiency"),
+  static const Enchantment efficiency = Enchantment('minecraft:efficiency');
 
-  feather_falling("minecraft:feather_falling"),
+  static const Enchantment feather_falling = Enchantment('minecraft:feather_falling');
 
-  fire_aspect("minecraft:fire_aspect"),
+  static const Enchantment fire_aspect = Enchantment('minecraft:fire_aspect');
 
-  fire_protection("minecraft:fire_protection"),
+  static const Enchantment fire_protection = Enchantment('minecraft:fire_protection');
 
-  flame("minecraft:flame"),
+  static const Enchantment flame = Enchantment('minecraft:flame');
 
-  fortune("minecraft:fortune"),
+  static const Enchantment fortune = Enchantment('minecraft:fortune');
 
-  frost_walker("minecraft:frost_walker"),
+  static const Enchantment frost_walker = Enchantment('minecraft:frost_walker');
 
-  impaling("minecraft:impaling"),
+  static const Enchantment impaling = Enchantment('minecraft:impaling');
 
-  infinity("minecraft:infinity"),
+  static const Enchantment infinity = Enchantment('minecraft:infinity');
 
-  knockback("minecraft:knockback"),
+  static const Enchantment knockback = Enchantment('minecraft:knockback');
 
-  looting("minecraft:looting"),
+  static const Enchantment looting = Enchantment('minecraft:looting');
 
-  loyalty("minecraft:loyalty"),
+  static const Enchantment loyalty = Enchantment('minecraft:loyalty');
 
-  luck_of_the_sea("minecraft:luck_of_the_sea"),
+  static const Enchantment luck_of_the_sea = Enchantment('minecraft:luck_of_the_sea');
 
-  lure("minecraft:lure"),
+  static const Enchantment lure = Enchantment('minecraft:lure');
 
-  mending("minecraft:mending"),
+  static const Enchantment mending = Enchantment('minecraft:mending');
 
-  multishot("minecraft:multishot"),
+  static const Enchantment multishot = Enchantment('minecraft:multishot');
 
-  piercing("minecraft:piercing"),
+  static const Enchantment piercing = Enchantment('minecraft:piercing');
 
-  power("minecraft:power"),
+  static const Enchantment power = Enchantment('minecraft:power');
 
-  projectile_protection("minecraft:projectile_protection"),
+  static const Enchantment projectile_protection = Enchantment('minecraft:projectile_protection');
 
-  protection("minecraft:protection"),
+  static const Enchantment protection = Enchantment('minecraft:protection');
 
-  punch("minecraft:punch"),
+  static const Enchantment punch = Enchantment('minecraft:punch');
 
-  quick_charge("minecraft:quick_charge"),
+  static const Enchantment quick_charge = Enchantment('minecraft:quick_charge');
 
-  respiration("minecraft:respiration"),
+  static const Enchantment respiration = Enchantment('minecraft:respiration');
 
-  riptide("minecraft:riptide"),
+  static const Enchantment riptide = Enchantment('minecraft:riptide');
 
-  sharpness("minecraft:sharpness"),
+  static const Enchantment sharpness = Enchantment('minecraft:sharpness');
 
-  silk_touch("minecraft:silk_touch"),
+  static const Enchantment silk_touch = Enchantment('minecraft:silk_touch');
 
-  smite("minecraft:smite"),
+  static const Enchantment smite = Enchantment('minecraft:smite');
 
-  soul_speed("minecraft:soul_speed"),
+  static const Enchantment soul_speed = Enchantment('minecraft:soul_speed');
 
-  sweeping_edge("minecraft:sweeping_edge"),
+  static const Enchantment sweeping_edge = Enchantment('minecraft:sweeping_edge');
 
-  swift_sneak("minecraft:swift_sneak"),
+  static const Enchantment swift_sneak = Enchantment('minecraft:swift_sneak');
 
-  thorns("minecraft:thorns"),
+  static const Enchantment thorns = Enchantment('minecraft:thorns');
 
-  unbreaking("minecraft:unbreaking"),
+  static const Enchantment unbreaking = Enchantment('minecraft:unbreaking');
 
-  vanishing_curse("minecraft:vanishing_curse"),
+  static const Enchantment vanishing_curse = Enchantment('minecraft:vanishing_curse');
 
-  wind_burst("minecraft:wind_burst"),
+  static const Enchantment wind_burst = Enchantment('minecraft:wind_burst');
 
   //[[[end]]]
-  ;
-  const Enchantment(this.name);
+}
 
+class Enchantment {
   final String name;
+
+  const Enchantment(this.name);
 }

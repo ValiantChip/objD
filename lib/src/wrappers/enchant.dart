@@ -4,7 +4,7 @@ import 'package:objd/src/build/build.dart';
 /// The Enchant Widget gives the currently holding item of a [target] an [enchantment]
 class Enchant extends RestActionAble {
   final Entity target;
-  final String enchantment;
+  final Enchantment enchantment;
   final int? level;
 
   /// The Enchant Widget gives the currently holding item of a [target] an [enchantment]
@@ -13,7 +13,7 @@ class Enchant extends RestActionAble {
   @override
   Widget generate(Context context) {
     var cmd = 'enchant ';
-    cmd += '$target $enchantment';
+    cmd += '$target ${enchantment.name}';
     if (level != null) cmd += ' $level';
 
     return Command(cmd);

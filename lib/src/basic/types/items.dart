@@ -82,8 +82,7 @@ class Items {
   /// ![acacia_pressure_plate](https://minecraftitemids.com/item/32/acacia_pressure_plate.png) \
   /// [Acacia Pressure Plate](https://minecraft.wiki/w/acacia_pressure_plate) \
   /// _minecraft:acacia_pressure_plate_
-  static const Item acacia_pressure_plate =
-      Item.type('minecraft:acacia_pressure_plate');
+  static const Item acacia_pressure_plate = Item.type('minecraft:acacia_pressure_plate');
 
   /// ![acacia_sapling](https://minecraftitemids.com/item/32/acacia_sapling.png) \
   /// [Acacia Sapling](https://minecraft.wiki/w/acacia_sapling) \

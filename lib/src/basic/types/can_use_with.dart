@@ -8,7 +8,7 @@ class CanUseWith {
   CanUseWith({required this.predicates, this.show_in_tooltip});
 
   Map<String, dynamic> getMap(){
-    var map = <String, dynamic>{'predicates':predicates.map((p) => p.getJson())};
+    var map = <String, dynamic>{'predicates':predicates.map((p) => p.getJson()).toList()};
     if(show_in_tooltip != null){
       map['show_in_tooltip'] = show_in_tooltip;
     }

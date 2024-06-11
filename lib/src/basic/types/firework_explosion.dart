@@ -17,10 +17,10 @@ class FireworkExplosion {
     };
 
     if(colors != null){
-      map['colors'] = colors!.map((c) => c.toString());
+      map['colors'] = colors!.map((c) => c.toString()).toList();
     }
     if(fade_colors != null){
-      map['fade_colors'] = fade_colors!.map((c) => c.toString());
+      map['fade_colors'] = fade_colors!.map((c) => c.toString()).toList();
     }
     if(has_trail != null){
       map['has_trail'] = has_trail;
@@ -37,14 +37,16 @@ class FireworkExplosion {
   }
 }
 
-enum FireworkShape {
-  small_ball('small_ball'),
-  large_ball('large_ball'),
-  star('star'),
-  creeper('creeper'),
-  burst('burst'),
-  ;
+class FireworkShape {
   const FireworkShape(this.name);
 
   final String name;
+}
+
+class FireworkShapes {
+  static const FireworkShape small_ball = FireworkShape('small_ball');
+  static const FireworkShape large_ball = FireworkShape('large_ball');
+  static const FireworkShape star = FireworkShape('star');
+  static const FireworkShape creeper = FireworkShape('creeper');
+  static const FireworkShape burst = FireworkShape('burst');
 }
