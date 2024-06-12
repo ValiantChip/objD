@@ -1,21 +1,16 @@
-import 'dart:convert';
-
 import 'package:gson/gson.dart';
-import 'package:objd/src/basic/types/instrument.dart';
-import 'package:objd/src/basic/types/potion_contents.dart';
 import 'package:objd/src/basic/widgets.dart';
 import 'package:objd/src/wrappers/summon.dart';
-import 'package:deep_collection/deep_collection.dart';
 
 export 'items.dart';
 
 /// The Item class represents an item in an inventory in Minecraft. It is used in the [Give]() or Nbt Commands.
 
 class Item {
-  final String type;
+  final ItemType type;
   final int? count;
   final Slot? slot;
-  final DataComponent? data_component;
+  late final DataComponent? data_component;
 
   /// The Item class represents an item in an inventory in Minecraft. It is used in the [Give]() or Nbt Commands.
   ///
@@ -52,54 +47,25 @@ class Item {
   /// ⇒ give  @s minecraft:iron_axe{"customNBT":1,"Damage":40,"CustomModelData":3390001,"display":{"Name":"{\"text\":\"My Item\",\"color\":\"black\"}","Lore":["{\"text\":\"My Description\",\"color\":\"blue\"}"]}} 5
   /// ```
   Item(
-    dynamic type, {
-    this.count,
-    this.slot,
-    this.data_component,
-    int? model,
-  }) : assert(
-          type is String || type is Item || type is Block,
-          'Please provide either a String, Item or Block',
-        ),
-        type = type.toString();
-  const Item.type(
     this.type, {
     this.count,
     this.slot,
-    this.damage,
-    this.tag,
+    this.data_component,
   });
 
   Item.SpawnEgg(
-    dynamic type,
+    this.type,
     Summon entity, {
     this.count,
     this.slot,
-    this.damage,
-    int? model,
-    int? hideFlags,
-    TextComponent? name,
-    List<TextComponent>? lore,
-    Map<String, dynamic>? nbt,
+    DataComponent? data_component,
   })  : assert(
           type is String || type is Item || type is Block,
           'Please provide either a String, Item or Block',
-        ),
-        tag = {},
-        type = type.toString()
-        {
-          nbt ??= {};
-
-          nbt.addAll({
-            'EntityTag': {
-              'id': entity.type.type,
-              ...entity.nbt ?? {},
-            }
-          });
-
-          _checkTags(model, type, hideFlags, name, lore, nbt);
-        }
-
+        )
+    {
+      this.data_component = data_component?.copyWith(entity_data: entity.getNbt()) ?? DataComponent(entity_data: entity.getNbt());
+    }
   // Item.Book(
   //   List<BookPage> pages, {
   //   String title = '',
@@ -126,66 +92,18 @@ class Item {
   // }
 
   /// creates a new object based on a existing Item to modify properties.
-  static Item clone(Item it) => Item(
-        it.type,
-        count: it.count,
-        slot: it.slot?.clone(),
-        nbt: it.tag != null ? Map.from(it.tag ?? {}) : null,
-      );
-
-  void _checkTags(
-    int? model, [
-    dynamic type,
-    int? hideFlags,
-    TextComponent? name,
-    List<TextComponent>? lore,
-    Map<String, dynamic>? nbt,
-    Map<String, dynamic>? tg,
-  ]) {
-    // check item type
-
-    final t = tg ?? tag ?? {};
-
-    if (nbt != null && nbt.isNotEmpty) t.addAll(nbt);
-    if (damage != null) t['Damage'] = damage;
-    if (model != null) t['CustomModelData'] = model;
-    if (hideFlags != null) t['HideFlags'] = hideFlags;
-    if (name != null) {
-      final n = name.toJson();
-
-      t['display'] = t['display'] ?? {};
-
-      // check if the value is even represented in json
-      if (n != null) {
-        t['display']['Name'] = n;
-      } else {
-        t['display'].remove('Name');
-      }
-    }
-    if (lore != null) {
-      t['display'] = t['display'] ?? {};
-      t['display']['Lore'] = lore.map((lor) => lor.toJson()).toList();
-    }
-  }
-
-  String getGiveNotation({bool withDamage = true}) {
-    var result = type;
-    if (tag != null && tag!.isNotEmpty) {
-      result += gson.encode(tag);
-    }
-    result += ' ';
-    if (count != null) result += count.toString();
-    if (damage != null && withDamage) result += ' $damage';
-    return result;
-  }
-
-  String getId() => type.replaceFirst('minecraft:', '');
+  // static Item clone(Item it) => Item(
+  //       it.type,
+  //       count: it.count,
+  //       slot: it.slot?.clone(),
+  //       data_component: it.data_component?.clone();
+  //     );
 
   Map<String, dynamic> getMap([bool useId = true]) {
     final map = <String, dynamic>{};
     final id = useId ? 'id' : 'item';
-    map[id] = 'minecraft:${getId()}';
-    if (tag != null && tag!.isNotEmpty) map['tag'] = tag;
+    map[id] = type.name;
+    if(data_component != null) map['components'] = data_component!.getMap();
     if (count != null) map['Count'] = Byte(count!);
     if (slot != null) {
       if (slot!.id == null) throw ('An Item needs the Slot id!');
@@ -203,33 +121,36 @@ class Item {
     return gson.encode(getMap());
   }
 
-  Item copyWith({
-    String? type,
-    int? count,
-    int? damage,
-    Slot? slot,
-    int? model,
-    int? hideFlags,
-    TextComponent? name,
-    List<TextComponent>? lore,
-    Map<String, dynamic>? nbt,
-  }) {
-    final t = tag != null
-        ? tag!.deepCopy().cast<String, dynamic>()
-        : <String, dynamic>{};
-    _checkTags(model, type, hideFlags, name, lore, nbt, t);
+  String getId() {
+    return type.name;
+  }
 
+  String getGiveNotation({bool withDamage = true}) {
+    var result = type.name;
+    if(data_component != null){
+      result += withDamage ? data_component.toString() : data_component!.copyWith(damage: null).toString();
+    }
+    result += ' ';
+    if (count != null) result += count.toString();
+    return result;
+  }
+
+  Item copyWith({
+    ItemType? type,
+    int? count,
+    Slot? slot,
+    DataComponent? data_component,
+  }) {
     return Item(
       type ?? this.type,
       count: count ?? this.count,
-      damage: damage ?? this.damage,
       slot: slot ?? this.slot,
-      nbt: t,
+      data_component: data_component ?? this.data_component,
     );
   }
 
   @override
-  String toString() => type;
+  String toString() => type.name;
 
   @override
   bool operator ==(Object other) {
@@ -238,18 +159,16 @@ class Item {
     return other is Item &&
         other.type == type &&
         other.count == count &&
-        other.damage == damage &&
-        other.slot == slot &&
-        other.tag == tag;
+        other.data_component == data_component &&
+        other.slot == slot;
   }
 
   @override
   int get hashCode {
     return type.hashCode ^
         count.hashCode ^
-        damage.hashCode ^
         slot.hashCode ^
-        tag.hashCode;
+        data_component.hashCode;
   }
 }
 

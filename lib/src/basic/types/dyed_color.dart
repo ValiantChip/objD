@@ -6,7 +6,7 @@ class DyedColor {
   final Color rgb;
   final bool? show_in_tooltip;
 
-  DyedColor({required this.rgb, this.show_in_tooltip});
+  const DyedColor({required this.rgb, this.show_in_tooltip});
 
   Map<String, dynamic> getMap() {
     var map = <String, dynamic>{

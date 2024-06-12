@@ -48,12 +48,10 @@ class ServerVersionCheck extends Widget {
           'Items': items.keys
               .where((v) => v >= (minVersion ?? 0))
               .map((v) => Item(
-                    items[v],
+                    items[v]!,
                     count: 1,
                     slot: Slot.chest(v - 12),
-                    nbt: {
-                      'objd': {'update': v}
-                    },
+                    data_component: DataComponent(custom_data: {'objd': {'update': v}}),
                   ).getMap())
               .toList(),
         },
