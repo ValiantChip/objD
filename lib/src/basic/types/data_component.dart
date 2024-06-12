@@ -228,6 +228,65 @@ class DataComponent {
     );
   }
 
+  DataComponent mergeWith(DataComponent d){
+    return copyWith(
+      attribute_modifiers: d.attribute_modifiers, 
+      banner_patterns: d.banner_patterns, 
+      base_color: d.base_color, 
+      bees: d.bees, 
+      block_entity_data: d.block_entity_data, 
+      block_state: d.block_state, 
+      bucket_entity_data: d.bucket_entity_data, 
+      custom_data: d.custom_data, 
+      entity_data: d.entity_data, 
+      bundle_contents: d.bundle_contents, 
+      charged_projectiles: d.charged_projectiles, 
+      can_break: d.can_break, 
+      can_place_on: d.can_place_on, 
+      container: d.container, 
+      container_loot: d.container_loot, 
+      custom_model_data: d.custom_model_data, 
+      custom_name: d.custom_name, 
+      damage: d.damage, 
+      debug_stick_state: d.debug_stick_state, 
+      dyedColor: d.dyedColor, 
+      enchantment_glint_overide: d.enchantment_glint_overide, 
+      enchantments: d.enchantments, 
+      fire_resistant: d.fire_resistant, 
+      firework_explosion: d.firework_explosion, 
+      fireworks: d.fireworks, 
+      food: d.food, 
+      hide_additional_tooltip: d.hide_additional_tooltip, 
+      hide_tooltip: d.hide_tooltip, 
+      instrument: d.instrument, 
+      intangible_projectile: d.intangible_projectile, 
+      item_name: d.item_name, 
+      lock: d.lock, 
+      lodestone_tracker: d.lodestone_tracker, 
+      lore: d.lore, 
+      map_color: d.map_color, 
+      map_decorations: d.map_decorations, 
+      map_id: d.map_id, 
+      max_damage: d.max_damage, 
+      max_stack_size: d.max_stack_size, 
+      ominous_bottle_amplifier: d.ominous_bottle_amplifier, 
+      note_block_sound: d.note_block_sound, 
+      pot_decorations: d.pot_decorations, 
+      potion_contents: d.potion_contents, 
+      profile: d.profile, 
+      rarity: d.rarity, 
+      recipies: d.recipies, 
+      repair_cost: d.repair_cost, 
+      stored_enchantments: d.stored_enchantments, 
+      suspicious_stew_effects: d.suspicious_stew_effects, 
+      tool: d.tool, 
+      trim: d.trim, 
+      unbreakable: d.unbreakable, 
+      writable_book_content: d.writable_book_content, 
+      written_book_content: d.written_book_content
+    );
+  }
+
   @override
   String toString() {
     var entries = getMap().entries;
