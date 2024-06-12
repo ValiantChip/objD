@@ -60,3 +60,4 @@ export 'types/trim.dart';
 export 'types/book_content.dart';
 export 'types/potion_contents.dart';
 export 'types/instrument.dart';
+export 'types/data_component.dart';

@@ -15,7 +15,7 @@ class Item {
   final String type;
   final int? count;
   final Slot? slot;
-  final Map<String, dynamic>? tag;
+  final DataComponent? data_component;
 
   /// The Item class represents an item in an inventory in Minecraft. It is used in the [Give]() or Nbt Commands.
   ///
@@ -55,23 +55,13 @@ class Item {
     dynamic type, {
     this.count,
     this.slot,
-    this.damage,
+    this.data_component,
     int? model,
-
-    /// Used to hide flags, VALUE ranges from 1 to 63
-    int? hideFlags,
-    TextComponent? name,
-    List<TextComponent>? lore,
-    Map<String, dynamic>? nbt,
-  })  : assert(
+  }) : assert(
           type is String || type is Item || type is Block,
           'Please provide either a String, Item or Block',
         ),
-        tag = {},
-        type = type.toString() {
-    // check tags
-    _checkTags(model, type, hideFlags, name, lore, nbt);
-  }
+        type = type.toString();
   const Item.type(
     this.type, {
     this.count,
