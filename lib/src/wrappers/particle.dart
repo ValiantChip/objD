@@ -1,3 +1,4 @@
+import 'package:gson/gson.dart';
 import 'package:objd/src/basic/command.dart';
 import 'package:objd/src/basic/rest_action.dart';
 import 'package:objd/src/basic/types/block.dart';
@@ -63,7 +64,7 @@ class Particle extends RestActionAble {
   })  : particle = falling
             ? Particles.falling_dust
             : (marker ? Particles.block_marker : Particles.block),
-        texture = block.toString();
+        texture = gson.encode(block.getBlockState());
 
   /// For the Item particle(shows item break) there is a named constructor
   Particle.item(
@@ -75,7 +76,7 @@ class Particle extends RestActionAble {
     this.force = false,
     this.player,
   })  : particle = Particles.item,
-        texture = item.getId();
+        texture = gson.encode({"item":item.getId()});
 
   // The dust particle requires a rgb color ranging from 0.0 to 1.0 each and a size
   Particle.dust(
@@ -90,7 +91,7 @@ class Particle extends RestActionAble {
     this.force = false,
     this.player,
   })  : particle = Particles.dust,
-        texture = '$r $g $b $size';
+        texture =gson.encode({'color' : [r, g, b] , 'scale': size});
 
   /// use copyWith to create a new instance with some values changed
   Particle copyWith({
@@ -124,7 +125,7 @@ class Particle extends RestActionAble {
       gen = "${Particles.block_marker} ${particle.type}";
     }
 
-    if (texture != null) gen += ' $texture';
+    if (texture != null) gen += '$texture';
     if (location != null) gen += ' $location';
     if (delta != null) {
       if (location == null) {

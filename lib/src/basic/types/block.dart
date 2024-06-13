@@ -34,7 +34,7 @@ class Block {
 
   Map<String, dynamic> getBlockState() => {
         "Name": id,
-        if (states != null) "properties": states,
+        if (states != null) "Properties": states,
       };
 
   /// **Usage:**
