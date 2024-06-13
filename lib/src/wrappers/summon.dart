@@ -89,7 +89,7 @@ class Summon extends RestActionAble {
           : tags;
     }
     if (effects != null && effects!.isNotEmpty) {
-      nbt['ActiveEffects'] = effects!.map((effect) => effect.getMap()).toList();
+      nbt['active_effects'] = effects!.map((effect) => effect.getMap()).toList();
     }
     if (passengers != null) {
       nbt['Passengers'] = passengers!.map((pass) => pass.getNbt()).toList();
