@@ -290,7 +290,7 @@ class DataComponent {
     var entries = getMap().entries;
     var str = "[";
     for(var e in entries){
-      str += "${e.key}=${gson.encode(e.value)},";
+      str += "\"${e.key}\"=${gson.encode(e.value)},";
     }
     str = str.substring(0, str.length - 1);
     str += "]";
@@ -301,163 +301,163 @@ class DataComponent {
   Map<String, dynamic> getMap() {
     Map<String, dynamic> map = {};
     if(attribute_modifiers != null){
-      map["attribute_modifiers"]=attribute_modifiers!.map((m) => m.getMap()).toList();
+      map["minecraft:attribute_modifiers"]=attribute_modifiers!.map((m) => m.getMap()).toList();
     }
     if(banner_patterns != null){
-      map["banner_patterns"]=banner_patterns!.map((p) => p.getMap()).toList();
+      map["minecraft:banner_patterns"]=banner_patterns!.map((p) => p.getMap()).toList();
     }
     if(base_color != null) {
-      map["base_color"]=base_color.toString();
+      map["minecraft:base_color"]=base_color.toString();
     }
     if(bees != null) {
-      map["bees"]=bees!.map((b) => b.getMap()).toList();
+      map["minecraft:bees"]=bees!.map((b) => b.getMap()).toList();
     }
     if(block_entity_data != null){
-      map["block_entity_data"]=block_entity_data;
+      map["minecraft:block_entity_data"]=block_entity_data;
     }
     if(block_state != null){
-      map["block_state"]=block_state;
+      map["minecraft:block_state"]=block_state;
     }
     if(bucket_entity_data != null) {
-      map["bucket_entity_data"]=bucket_entity_data;
+      map["minecraft:bucket_entity_data"]=bucket_entity_data;
     }
     if(custom_data != null){
-      map["custom_data"]=custom_data;
+      map["minecraft:custom_data"]=custom_data;
     }
     if(entity_data != null){
-      map["entity_data"]=entity_data;
+      map["minecraft:entity_data"]=entity_data;
     }
     if(bundle_contents != null){
-      map["bundle_contents"]=bundle_contents!.map((c) => c.getMap()).toList();
+      map["minecraft:bundle_contents"]=bundle_contents!.map((c) => c.getMap()).toList();
     }
     if(charged_projectiles != null){
-      map["charged_projectiles"]=charged_projectiles!.map((c) => c.getMap()).toList();
+      map["minecraft:charged_projectiles"]=charged_projectiles!.map((c) => c.getMap()).toList();
     }
     if(can_break != null){
-      map["can_break"]=can_break!.getMap();
+      map["minecraft:can_break"]=can_break!.getMap();
     }
     if(can_place_on != null) {
-      map["can_place_on"]=can_place_on!.getMap();
+      map["minecraft:can_place_on"]=can_place_on!.getMap();
     }
     if(container != null){
-      map["container"]=container!.getMap();
+      map["minecraft:container"]=container!.getMap();
     }
     if(container_loot != null) {
-      map["container_loot"]=container_loot!.getMap();
+      map["minecraft:container_loot"]=container_loot!.getMap();
     }
     if(custom_model_data != null){
-      map["custom_model_data"]=custom_model_data;
+      map["minecraft:custom_model_data"]=custom_model_data;
     }
     if(custom_name != null){
-      map["custom_name"]=custom_name!.toJson();
+      map["minecraft:custom_name"]=custom_name!.toJson();
     }
     if(damage != null) {
-      map["damage"]=damage;
+      map["minecraft:damage"]=damage;
     }
     if(debug_stick_state != null){
-      map["debug_stick_state"]=debug_stick_state;
+      map["minecraft:debug_stick_state"]=debug_stick_state;
     }
     if(dyedColor != null){
-      map["dyed_color"]=dyedColor!.getMap();
+      map["minecraft:dyed_color"]=dyedColor!.getMap();
     }
     if(enchantment_glint_overide != null){
-      map["enchantment_glint_overide"]=enchantment_glint_overide;
+      map["minecraft:enchantment_glint_overide"]=enchantment_glint_overide;
     }
     if(enchantments != null) {
-      map["enchantments"]=enchantments!.getMap();
+      map["minecraft:enchantments"]=enchantments!.getMap();
     }
     if(fire_resistant != null) {
-      map["fire_resistant"]=fire_resistant;
+      map["minecraft:fire_resistant"]=fire_resistant;
     }
     if(firework_explosion != null) {
-      map["firework_explosion"]=firework_explosion!.getMap();
+      map["minecraft:firework_explosion"]=firework_explosion!.getMap();
     }
     if(fireworks != null){
-      map["fireworks"]=fireworks!.getMap();
+      map["minecraft:fireworks"]=fireworks!.getMap();
     }
     if(food != null) {
-      map["food"]=food!.getMap();
+      map["minecraft:food"]=food!.getMap();
     }
     if(hide_additional_tooltip != null){
-      map["hide_additional_tooltip"]=hide_additional_tooltip;
+      map["minecraft:hide_additional_tooltip"]=hide_additional_tooltip;
     }
     if(hide_tooltip != null) {
-      map["hide_tooltip"]=hide_tooltip;
+      map["minecraft:hide_tooltip"]=hide_tooltip;
     }
     if(instrument != null) {
-      map["instrument"]=instrument!.getComponents();
+      map["minecraft:instrument"]=instrument!.getComponents();
     }
     if(intangible_projectile != null){
-      map["intangible_projectile"]=intangible_projectile;
+      map["minecraft:intangible_projectile"]=intangible_projectile;
     }
     if(item_name != null){
-      map["item_name"]=item_name!.toJson();
+      map["minecraft:item_name"]=item_name!.toJson();
     }
     if(lock != null) {
-      map["lock"]=lock;
+      map["minecraft:lock"]=lock;
     }
     if(lodestone_tracker != null){
-      map["lodestone_tracker"]=lodestone_tracker!.getMap();
+      map["minecraft:lodestone_tracker"]=lodestone_tracker!.getMap();
     }
     if(lore != null) {
-      map["lore"]=lore!.map((t) => t.toJson()).toList();
+      map["minecraft:lore"]=lore!.map((t) => t.toJson()).toList();
     }
     if(map_color != null){
-      map["map_color"]=map_color.toString();
+      map["minecraft:map_color"]=map_color.toString();
     }
     if(map_decorations != null){
-      map["map_decorations"]=map_decorations!.map((key, value) => MapEntry(key, value.getMap()));
+      map["minecraft:map_decorations"]=map_decorations!.map((key, value) => MapEntry(key, value.getMap()));
     }
     if(map_id != null) {
-      map["map_id"]=map_id;
+      map["minecraft:map_id"]=map_id;
     }
     if(max_damage != null) {
-      map["max_damage"]=max_damage;
+      map["minecraft:max_damage"]=max_damage;
     }
     if(max_stack_size != null) {
-      map["max_stack_size"]=max_stack_size;
+      map["minecraft:max_stack_size"]=max_stack_size;
     }
     if(ominous_bottle_amplifier != null) {
-      map["omious_bottle_amplifier"]=ominous_bottle_amplifier;
+      map["minecraft:omious_bottle_amplifier"]=ominous_bottle_amplifier;
     }
     if(note_block_sound != null) {
-      map["note_block_sound"]=note_block_sound!.name;
+      map["minecraft:note_block_sound"]=note_block_sound!.name;
     }
     if(pot_decorations != null){
-      map["pot_decorations"]=pot_decorations!.map((i) => i.getMap()).toList();
+      map["minecraft:pot_decorations"]=pot_decorations!.map((i) => i.getMap()).toList();
     }
     if(potion_contents != null){
-      map["potion_contents"]=potion_contents!.getMap();
+      map["minecraft:potion_contents"]=potion_contents!.getMap();
     }
     if(profile != null){
-      map["profile"]=profile!.getMap();
+      map["minecraft:profile"]=profile!.getMap();
     }
     if(rarity != null) {
-      map["rarity"]=rarity!.name;
+      map["minecraft:rarity"]=rarity!.name;
     }
     if(recipies != null) {
-      map["recipies"]=recipies;
+      map["minecraft:recipies"]=recipies;
     }
     if(repair_cost != null){
-      map["repair_cost"]=repair_cost;
+      map["minecraft:repair_cost"]=repair_cost;
     }
     if(stored_enchantments != null){
-      map["stored_enchantments"]=stored_enchantments!.getMap();
+      map["minecraft:stored_enchantments"]=stored_enchantments!.getMap();
     }
     if(suspicious_stew_effects != null){
-      map["suspicious_stew_effects"]=suspicious_stew_effects!.map((e) => e.getMap()).toList();
+      map["minecraft:suspicious_stew_effects"]=suspicious_stew_effects!.map((e) => e.getMap()).toList();
     }
     if(tool != null) {
-      map["tool"]=tool!.getMap();
+      map["minecraft:tool"]=tool!.getMap();
     }
     if(unbreakable != null){
-      map["unbreakable"]=unbreakable;
+      map["minecraft:unbreakable"]=unbreakable;
     }
     if(writable_book_content != null){
-      map["writable_book_content"]=writable_book_content!.pages;
+      map["minecraft:writable_book_content"]=writable_book_content!.pages;
     }
     if(written_book_content != null) {
-      map["written_book_content"]=written_book_content!.getMap();
+      map["minecraft:written_book_content"]=written_book_content!.getMap();
     }
   return map;
   }
