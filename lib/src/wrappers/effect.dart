@@ -40,7 +40,7 @@ class Effect extends RestActionAble implements GsonValue {
 
   Map<String, dynamic> getMap() {
     var ret = <String, dynamic>{};
-    if (effect != null) ret['id'] = EffectType.values.indexOf(effect!) + 1;
+    if (effect != null) ret['id'] = 'minecraft:${effect!.name}';
     ret['amplifier'] = Byte(amplifier != null ? amplifier! - 1 : 0);
     ret['duration'] = duration != null ? duration!.ticks : 0;
     ret['show_particles'] = Byte(
