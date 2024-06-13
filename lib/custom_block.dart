@@ -72,14 +72,15 @@ class CustomBlock extends Module {
     this.name,
     this.useItemFrame = false,
     this.yOffset = 1,
-  })  : breakItem = breakItem ?? Item(block),
+  })  : breakItem = breakItem ?? Item(ItemType(block.id)),
         assert(
           item.getId().contains('spawn_egg'),
           'You have to provide a spawn egg.',
         );
 
   Item getItem() => item.copyWith(
-        nbt: {
+        copier: DataComponentCopier(
+          entity_data: () => {
           'EntityTag': {
             'id': Entities.area_effect_cloud.toString(),
             'Tags': ['summon_$id'],
@@ -88,8 +89,10 @@ class CustomBlock extends Module {
             'Radius': 0,
           }
         },
+          custom_name: () => name != null ? TextComponent(name!, italic: false) : null,
+        ),
         count: item.count ?? 1,
-        name: name != null ? TextComponent(name!, italic: false) : null,
+        
       );
 
   Widget _setblock({required Widget fireTimer}) {
@@ -108,7 +111,7 @@ class CustomBlock extends Module {
               nbt: {
                 'Invisible': 1,
                 'Fixed': 1,
-                'Item': headItem.copyWith(name: TextComponent.none()).getMap(),
+                'Item': headItem.copyWith(copier: DataComponentCopier(custom_name: () => TextComponent.none())).getMap(),
                 'Facing': 1,
                 'Invulnerable': 1,
               },

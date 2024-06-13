@@ -64,7 +64,7 @@ class Item {
           'Please provide either a String, Item or Block',
         )
     {
-      this.data_component = data_component?.copyWith(entity_data: entity.getNbt()) ?? DataComponent(entity_data: entity.getNbt());
+      this.data_component = data_component?.copyWith(entity_data: () => entity.getNbt()) ?? DataComponent(entity_data: entity.getNbt());
     }
   // Item.Book(
   //   List<BookPage> pages, {
@@ -128,7 +128,7 @@ class Item {
   String getGiveNotation({bool withDamage = true}) {
     var result = type.name;
     if(data_component != null){
-      result += withDamage ? data_component.toString() : data_component!.copyWith(damage: null).toString();
+      result += withDamage ? data_component.toString() : data_component!.copyWith(damage: () => null).toString();
     }
     result += ' ';
     if (count != null) result += count.toString();
@@ -139,13 +139,13 @@ class Item {
     ItemType? type,
     int? count,
     Slot? slot,
-    DataComponent? data_component,
+    DataComponentCopier? copier,
   }) {
     return Item(
       type ?? this.type,
       count: count ?? this.count,
       slot: slot ?? this.slot,
-      data_component: data_component ?? this.data_component,
+      data_component: copier?.copy(data_component) ?? data_component,
     );
   }
 

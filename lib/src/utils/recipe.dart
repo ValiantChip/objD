@@ -186,64 +186,64 @@ class Recipe extends Widget {
   }
 
   /// With objD you can also import usual minecraft recipes in json data. objD automatically parses that and converts it to a command.
-  factory Recipe.fromJson(
-    Map<String, dynamic> json, {
-    int? id,
-    bool exactlyPlaced = false,
-    int? exactResult,
-  }) {
-    bool exists(String key, [value]) {
-      if (value != null) return json[key] != null && json[key] == value;
-      return json[key] != null;
-    }
+  // factory Recipe.fromJson(
+  //   Map<String, dynamic> json, {
+  //   int? id,
+  //   bool exactlyPlaced = false,
+  //   int? exactResult,
+  // }) {
+  //   bool exists(String key, [value]) {
+  //     if (value != null) return json[key] != null && json[key] == value;
+  //     return json[key] != null;
+  //   }
 
-    var ingredients = <int, Item>{};
-    RecipeType? type;
+  //   var ingredients = <int, Item>{};
+  //   RecipeType? type;
 
-    if (exists('type')) {
-      if (json['type'] == 'minecraft:crafting_shapeless') {
-        type = RecipeType.shapeless;
-      } else {
-        type = RecipeType.values
-            .firstWhere((t) => (json['type'] as String).contains(t.name));
-      }
-    }
-    type ??= RecipeType.shaped;
+  //   if (exists('type')) {
+  //     if (json['type'] == 'minecraft:crafting_shapeless') {
+  //       type = RecipeType.shapeless;
+  //     } else {
+  //       type = RecipeType.values
+  //           .firstWhere((t) => (json['type'] as String).contains(t.name));
+  //     }
+  //   }
+  //   type ??= RecipeType.shaped;
 
-    var i = 1;
-    if (exists('ingredients')) {
-      json['ingredients'].forEach((Map<String, dynamic> item) {
-        ingredients[i] = Item.fromJson(item);
-        i++;
-      });
-    }
+  //   var i = 1;
+  //   if (exists('ingredients')) {
+  //     json['ingredients'].forEach((Map<String, dynamic> item) {
+  //       ingredients[i] = Item.fromJson(item);
+  //       i++;
+  //     });
+  //   }
 
-    late Item result;
+  //   late Item result;
 
-    if (exists('result')) {
-      result = Item.fromJson(json['result'] as Map<String, dynamic>);
-    } else {
-      throw 'Recipe without result field detected';
-    }
-    // key-item paired items
-    var items = <String, Item>{};
+  //   if (exists('result')) {
+  //     result = Item.fromJson(json['result'] as Map<String, dynamic>);
+  //   } else {
+  //     throw 'Recipe without result field detected';
+  //   }
+  //   // key-item paired items
+  //   var items = <String, Item>{};
 
-    if (exists('key')) {
-      var keys = json['key'] as Map<String, dynamic>;
-      items = keys
-          .map((k, v) => MapEntry(k, Item.fromJson(v as Map<String, dynamic>)));
-    }
+  //   if (exists('key')) {
+  //     var keys = json['key'] as Map<String, dynamic>;
+  //     items = keys
+  //         .map((k, v) => MapEntry(k, Item.fromJson(v as Map<String, dynamic>)));
+  //   }
 
-    return Recipe.pattern(
-      (json['pattern'] ?? []) as List<String>,
-      items,
-      result,
-      type: type,
-      id: id,
-      exactlyPlaced: exactlyPlaced,
-      exactResult: exactResult,
-    );
-  }
+  //   return Recipe.pattern(
+  //     (json['pattern'] ?? []) as List<String>,
+  //     items,
+  //     result,
+  //     type: type,
+  //     id: id,
+  //     exactlyPlaced: exactlyPlaced,
+  //     exactResult: exactResult,
+  //   );
+  // }
 
   @override
   Widget generate(Context context) {
