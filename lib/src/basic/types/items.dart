@@ -4,10 +4,6 @@ class ItemType {
   final String name;
 
   const ItemType(this.name);
-
-  Item toItem(){
-    return Item(this);
-  }
 }
 
 class Items {

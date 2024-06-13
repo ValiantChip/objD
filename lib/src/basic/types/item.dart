@@ -10,7 +10,7 @@ class Item {
   final ItemType type;
   final int? count;
   final Slot? slot;
-  late final DataComponent? data_component;
+  final DataComponent? data_component;
 
   /// The Item class represents an item in an inventory in Minecraft. It is used in the [Give]() or Nbt Commands.
   ///
@@ -46,26 +46,12 @@ class Item {
   ///
   /// ⇒ give  @s minecraft:iron_axe{"customNBT":1,"Damage":40,"CustomModelData":3390001,"display":{"Name":"{\"text\":\"My Item\",\"color\":\"black\"}","Lore":["{\"text\":\"My Description\",\"color\":\"blue\"}"]}} 5
   /// ```
-  Item(
+  const Item(
     this.type, {
     this.count,
     this.slot,
     this.data_component,
   });
-
-  Item.SpawnEgg(
-    this.type,
-    Summon entity, {
-    this.count,
-    this.slot,
-    DataComponent? data_component,
-  })  : assert(
-          type is String || type is Item || type is Block,
-          'Please provide either a String, Item or Block',
-        )
-    {
-      this.data_component = data_component?.copyWith(entity_data: () => entity.getNbt()) ?? DataComponent(entity_data: entity.getNbt());
-    }
   // Item.Book(
   //   List<BookPage> pages, {
   //   String title = '',
