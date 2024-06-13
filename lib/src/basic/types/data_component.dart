@@ -290,7 +290,7 @@ class DataComponent {
     var entries = getMap().entries;
     var str = "[";
     for(var e in entries){
-      str += "${e.key}=${gson.encode(e.value)},";
+      str += "${e.key.replaceAll("\"", "")}=${gson.encode(e.value)},";
     }
     str = str.substring(0, str.length - 1);
     str += "]";
