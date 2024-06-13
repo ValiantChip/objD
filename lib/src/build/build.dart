@@ -134,7 +134,7 @@ Map<String, String> _getFiles(BuildProject prj, GenOptions options) {
         if (pack.files.isNotEmpty) {
           pack.files.forEach((filepath, file) {
             if (file.isGen) {
-              files['data/${pack.name}/functions/$filepath'] =
+              files['data/${pack.name}/function/$filepath'] =
                   file.commands.toString();
             }
           });
@@ -146,10 +146,10 @@ Map<String, String> _getFiles(BuildProject prj, GenOptions options) {
   // add minecraft relevant stuff
   if (!options.minified) {
     if (tickJson['values'] != null && (tickJson['values'] as List).isNotEmpty) {
-      files['data/minecraft/tags/functions/tick.json'] = json.encode(tickJson);
+      files['data/minecraft/tags/function/tick.json'] = json.encode(tickJson);
     }
     if (loadJson['values'] != null && (loadJson['values'] as List).isNotEmpty) {
-      files['data/minecraft/tags/functions/load.json'] = json.encode(loadJson);
+      files['data/minecraft/tags/function/load.json'] = json.encode(loadJson);
     }
   }
 

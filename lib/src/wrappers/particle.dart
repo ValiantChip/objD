@@ -64,7 +64,7 @@ class Particle extends RestActionAble {
   })  : particle = falling
             ? Particles.falling_dust
             : (marker ? Particles.block_marker : Particles.block),
-        texture = gson.encode(block.getBlockState());
+        texture = gson.encode({'block_state':block.getBlockState()});
 
   /// For the Item particle(shows item break) there is a named constructor
   Particle.item(
