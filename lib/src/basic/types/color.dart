@@ -1,5 +1,7 @@
+import 'package:gson/gson.dart';
+
 /// See all available colors: https://minecraft.wiki/w/Formatting_codes#Color_codes
-class Color {
+class Color implements GsonValue{
   final String _color;
 
   ///   With 1.16 you can also use any rgb color now:
@@ -45,6 +47,11 @@ class Color {
   static const Color Red = Color('red');
   static const Color LightPurple = Color('light_purple');
   static const Color Yellow = Color('yellow');
+
+  @override
+  String toSimple() {
+    return toString();
+  }
 
   @override
   String toString() {
