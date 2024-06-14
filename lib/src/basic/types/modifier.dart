@@ -6,7 +6,7 @@ class Modifier {
   final ModifierSlot slot;
   //final UUID uuid;
   final String id;
-  final Double amount;
+  final double amount;
   final ModifierOperation operation;
 
 
