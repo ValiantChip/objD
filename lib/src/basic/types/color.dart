@@ -12,7 +12,7 @@ class Color {
   const Color(this._color);
 
   static Color fromInt(int color) =>
-      Color('#${color.toRadixString(16).padLeft(4, '0')}');
+    Color('$color');
   static Color fromRGB(int r, int g, int b) {
     r = (r < 0) ? -r : r;
     g = (g < 0) ? -g : g;
@@ -23,6 +23,10 @@ class Color {
     return Color.fromInt(
       ((r & 0x0ff) << 16) | ((g & 0x0ff) << 8) | (b & 0x0ff),
     );
+  }
+  static Color fromHex(String hex){
+    var i = int.parse(hex, radix: 16);
+    return Color(i.toString());
   }
 
   static const Color White = Color('white');

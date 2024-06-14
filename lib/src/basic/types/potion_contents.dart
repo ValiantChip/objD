@@ -1,6 +1,6 @@
 import 'package:gson/gson.dart';
+import 'package:objd/src/basic/types/color.dart';
 import 'package:objd/src/basic/types/custom_effect.dart';
-import 'package:objd/src/basic/widgets.dart';
 
 class PotionContents {
   final Potion? potion;
@@ -15,7 +15,7 @@ class PotionContents {
       map['potion'] = potion!.name;
     }
     if(custom_color != null){
-      map['custom_color'] = custom_color!.toString();
+      map['custom_color'] = custom_color!;
     }
     if(custom_effects != null){
       map['custom_effects'] = custom_effects!.map((e) => e.getMap()).toList();
