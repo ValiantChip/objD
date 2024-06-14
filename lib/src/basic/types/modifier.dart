@@ -4,22 +4,19 @@ import 'package:objd/src/basic/widgets.dart';
 class Modifier {
   final AttributeType type;
   final ModifierSlot slot;
-  final UUID uuid;
-  late final String name;
+  //final UUID uuid;
+  final String id;
   final Double amount;
   final ModifierOperation operation;
 
 
-  Modifier({required this.type, required this.slot, required this.uuid, required this.amount, required this.operation}){
-    name = type.toString();
-  }
+  const Modifier({required this.type, required this.slot, required this.id, required this.amount, required this.operation});
 
   Map<String, dynamic> getMap(){
     return {
       'type': type.toString(),
       'slot':slot.name,
-      'uuid':uuid.toString(),
-      'name':name,
+      'id':id,
       'amount':amount,
       'operation':operation.name
     };
