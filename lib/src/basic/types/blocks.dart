@@ -7,22 +7,16 @@ class Blocks {
   import requests
 
   version = '1.20/releases/1.20.4'
-  snapshot = '1.20/snapshots/23w51b'
 
-  res = requests.get(f'https://raw.githubusercontent.com/PixiGeko/Minecraft-generated-data/master/{snapshot}/custom-generated/registries/block.txt')
-  res_release = requests.get(f'https://raw.githubusercontent.com/PixiGeko/Minecraft-generated-data/master/{version}/custom-generated/registries/block.txt')
-  release_lines = set(res_release.iter_lines())
+  res = requests.get(f'https://raw.githubusercontent.com/PixiGeko/Minecraft-generated-data/master/{version}/custom-generated/registries/block.txt')
   blocks = []
   next_blocks = []
   for l in res.iter_lines():
       full = l.decode('UTF-8')
       id = full.split(':')[1]
-      if l in release_lines:
-        blocks.append(id)
-      else:
-        next_blocks.append(id)
-      cog.outl(f'/// ![{id}](https://minecraftitemids.com/item/32/{id}.png) \ ')
-      cog.outl(f"/// [{' '.join(s.capitalize() for s in id.split('_'))}](https://minecraft.wiki/w/{id}) \ ")
+      blocks.append(id)
+      cog.outl(f'/// ![{id}](https://minecraftitemids.com/item/32/{id}.png)')
+      cog.outl(f"/// [{' '.join(s.capitalize() for s in id.split('_'))}](https://minecraft.wiki/w/{id})")
       cog.outl(f'/// _{full}_')
       cog.outl(f"static const Block {id} = Block('{full}');\n")
   ]]]*/
@@ -6382,15 +6376,6 @@ class Blocks {
     yellow_wool,
     zombie_head,
     zombie_wall_head,
-        //[[[end]]]
-      ];
-
-  /// A List of newer experimental blocks introduced in the next minecraft version
-  static List<Block> get snapshot => const [
-        /*[[[cog
-    for b in next_blocks:
-      cog.outl(f'{b},')
-    ]]]*/
         //[[[end]]]
       ];
 }

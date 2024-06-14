@@ -6,7 +6,7 @@ class Sounds {
   import cog
   import requests
 
-  version = '1.20/releases/1.20.4'
+  version = '1.21/releases/1.21'
 
   res = requests.get(f'https://raw.githubusercontent.com/PixiGeko/Minecraft-generated-data/master/{version}/custom-generated/registries/sound_event.txt')
   blocks = []
@@ -398,6 +398,16 @@ class Sounds {
 
   static const Sound block_chorus_flower_grow = Sound('minecraft:block.chorus_flower.grow');
 
+  static const Sound block_cobweb_break = Sound('minecraft:block.cobweb.break');
+
+  static const Sound block_cobweb_fall = Sound('minecraft:block.cobweb.fall');
+
+  static const Sound block_cobweb_hit = Sound('minecraft:block.cobweb.hit');
+
+  static const Sound block_cobweb_place = Sound('minecraft:block.cobweb.place');
+
+  static const Sound block_cobweb_step = Sound('minecraft:block.cobweb.step');
+
   static const Sound block_comparator_click = Sound('minecraft:block.comparator.click');
 
   static const Sound block_composter_empty = Sound('minecraft:block.composter.empty');
@@ -667,6 +677,16 @@ class Sounds {
   static const Sound block_hanging_sign_step = Sound('minecraft:block.hanging_sign.step');
 
   static const Sound block_hanging_sign_waxed_interact_fail = Sound('minecraft:block.hanging_sign.waxed_interact_fail');
+
+  static const Sound block_heavy_core_break = Sound('minecraft:block.heavy_core.break');
+
+  static const Sound block_heavy_core_fall = Sound('minecraft:block.heavy_core.fall');
+
+  static const Sound block_heavy_core_hit = Sound('minecraft:block.heavy_core.hit');
+
+  static const Sound block_heavy_core_place = Sound('minecraft:block.heavy_core.place');
+
+  static const Sound block_heavy_core_step = Sound('minecraft:block.heavy_core.step');
 
   static const Sound block_honey_block_break = Sound('minecraft:block.honey_block.break');
 
@@ -1316,7 +1336,11 @@ class Sounds {
 
   static const Sound block_sweet_berry_bush_place = Sound('minecraft:block.sweet_berry_bush.place');
 
+  static const Sound block_trial_spawner_about_to_spawn_item = Sound('minecraft:block.trial_spawner.about_to_spawn_item');
+
   static const Sound block_trial_spawner_ambient = Sound('minecraft:block.trial_spawner.ambient');
+
+  static const Sound block_trial_spawner_ambient_ominous = Sound('minecraft:block.trial_spawner.ambient_ominous');
 
   static const Sound block_trial_spawner_break = Sound('minecraft:block.trial_spawner.break');
 
@@ -1330,9 +1354,15 @@ class Sounds {
 
   static const Sound block_trial_spawner_hit = Sound('minecraft:block.trial_spawner.hit');
 
+  static const Sound block_trial_spawner_ominous_activate = Sound('minecraft:block.trial_spawner.ominous_activate');
+
   static const Sound block_trial_spawner_open_shutter = Sound('minecraft:block.trial_spawner.open_shutter');
 
   static const Sound block_trial_spawner_place = Sound('minecraft:block.trial_spawner.place');
+
+  static const Sound block_trial_spawner_spawn_item = Sound('minecraft:block.trial_spawner.spawn_item');
+
+  static const Sound block_trial_spawner_spawn_item_begin = Sound('minecraft:block.trial_spawner.spawn_item_begin');
 
   static const Sound block_trial_spawner_spawn_mob = Sound('minecraft:block.trial_spawner.spawn_mob');
 
@@ -1365,6 +1395,34 @@ class Sounds {
   static const Sound block_tuff_bricks_place = Sound('minecraft:block.tuff_bricks.place');
 
   static const Sound block_tuff_bricks_step = Sound('minecraft:block.tuff_bricks.step');
+
+  static const Sound block_vault_activate = Sound('minecraft:block.vault.activate');
+
+  static const Sound block_vault_ambient = Sound('minecraft:block.vault.ambient');
+
+  static const Sound block_vault_break = Sound('minecraft:block.vault.break');
+
+  static const Sound block_vault_close_shutter = Sound('minecraft:block.vault.close_shutter');
+
+  static const Sound block_vault_deactivate = Sound('minecraft:block.vault.deactivate');
+
+  static const Sound block_vault_eject_item = Sound('minecraft:block.vault.eject_item');
+
+  static const Sound block_vault_fall = Sound('minecraft:block.vault.fall');
+
+  static const Sound block_vault_hit = Sound('minecraft:block.vault.hit');
+
+  static const Sound block_vault_insert_item = Sound('minecraft:block.vault.insert_item');
+
+  static const Sound block_vault_insert_item_fail = Sound('minecraft:block.vault.insert_item_fail');
+
+  static const Sound block_vault_open_shutter = Sound('minecraft:block.vault.open_shutter');
+
+  static const Sound block_vault_place = Sound('minecraft:block.vault.place');
+
+  static const Sound block_vault_reject_rewarded_player = Sound('minecraft:block.vault.reject_rewarded_player');
+
+  static const Sound block_vault_step = Sound('minecraft:block.vault.step');
 
   static const Sound block_vine_break = Sound('minecraft:block.vine.break');
 
@@ -1409,6 +1467,8 @@ class Sounds {
   static const Sound block_wet_grass_step = Sound('minecraft:block.wet_grass.step');
 
   static const Sound block_wet_sponge_break = Sound('minecraft:block.wet_sponge.break');
+
+  static const Sound block_wet_sponge_dries = Sound('minecraft:block.wet_sponge.dries');
 
   static const Sound block_wet_sponge_fall = Sound('minecraft:block.wet_sponge.fall');
 
@@ -1469,6 +1529,32 @@ class Sounds {
   static const Sound entity_allay_item_taken = Sound('minecraft:entity.allay.item_taken');
 
   static const Sound entity_allay_item_thrown = Sound('minecraft:entity.allay.item_thrown');
+
+  static const Sound entity_armadillo_ambient = Sound('minecraft:entity.armadillo.ambient');
+
+  static const Sound entity_armadillo_brush = Sound('minecraft:entity.armadillo.brush');
+
+  static const Sound entity_armadillo_death = Sound('minecraft:entity.armadillo.death');
+
+  static const Sound entity_armadillo_eat = Sound('minecraft:entity.armadillo.eat');
+
+  static const Sound entity_armadillo_hurt = Sound('minecraft:entity.armadillo.hurt');
+
+  static const Sound entity_armadillo_hurt_reduced = Sound('minecraft:entity.armadillo.hurt_reduced');
+
+  static const Sound entity_armadillo_land = Sound('minecraft:entity.armadillo.land');
+
+  static const Sound entity_armadillo_peek = Sound('minecraft:entity.armadillo.peek');
+
+  static const Sound entity_armadillo_roll = Sound('minecraft:entity.armadillo.roll');
+
+  static const Sound entity_armadillo_scute_drop = Sound('minecraft:entity.armadillo.scute_drop');
+
+  static const Sound entity_armadillo_step = Sound('minecraft:entity.armadillo.step');
+
+  static const Sound entity_armadillo_unroll_finish = Sound('minecraft:entity.armadillo.unroll_finish');
+
+  static const Sound entity_armadillo_unroll_start = Sound('minecraft:entity.armadillo.unroll_start');
 
   static const Sound entity_armor_stand_break = Sound('minecraft:entity.armor_stand.break');
 
@@ -1534,7 +1620,21 @@ class Sounds {
 
   static const Sound entity_boat_paddle_water = Sound('minecraft:entity.boat.paddle_water');
 
+  static const Sound entity_bogged_ambient = Sound('minecraft:entity.bogged.ambient');
+
+  static const Sound entity_bogged_death = Sound('minecraft:entity.bogged.death');
+
+  static const Sound entity_bogged_hurt = Sound('minecraft:entity.bogged.hurt');
+
+  static const Sound entity_bogged_shear = Sound('minecraft:entity.bogged.shear');
+
+  static const Sound entity_bogged_step = Sound('minecraft:entity.bogged.step');
+
+  static const Sound entity_breeze_charge = Sound('minecraft:entity.breeze.charge');
+
   static const Sound entity_breeze_death = Sound('minecraft:entity.breeze.death');
+
+  static const Sound entity_breeze_deflect = Sound('minecraft:entity.breeze.deflect');
 
   static const Sound entity_breeze_hurt = Sound('minecraft:entity.breeze.hurt');
 
@@ -1551,6 +1651,10 @@ class Sounds {
   static const Sound entity_breeze_shoot = Sound('minecraft:entity.breeze.shoot');
 
   static const Sound entity_breeze_slide = Sound('minecraft:entity.breeze.slide');
+
+  static const Sound entity_breeze_whirl = Sound('minecraft:entity.breeze.whirl');
+
+  static const Sound entity_breeze_wind_burst = Sound('minecraft:entity.breeze.wind_burst');
 
   static const Sound entity_camel_ambient = Sound('minecraft:entity.camel.ambient');
 
@@ -1657,6 +1761,8 @@ class Sounds {
   static const Sound entity_donkey_eat = Sound('minecraft:entity.donkey.eat');
 
   static const Sound entity_donkey_hurt = Sound('minecraft:entity.donkey.hurt');
+
+  static const Sound entity_donkey_jump = Sound('minecraft:entity.donkey.jump');
 
   static const Sound entity_dragon_fireball_explode = Sound('minecraft:entity.dragon_fireball.explode');
 
@@ -1839,8 +1945,6 @@ class Sounds {
   static const Sound entity_generic_splash = Sound('minecraft:entity.generic.splash');
 
   static const Sound entity_generic_swim = Sound('minecraft:entity.generic.swim');
-
-  static const Sound entity_generic_wind_burst = Sound('minecraft:entity.generic.wind_burst');
 
   static const Sound entity_ghast_ambient = Sound('minecraft:entity.ghast.ambient');
 
@@ -2100,6 +2204,8 @@ class Sounds {
 
   static const Sound entity_mule_hurt = Sound('minecraft:entity.mule.hurt');
 
+  static const Sound entity_mule_jump = Sound('minecraft:entity.mule.jump');
+
   static const Sound entity_ocelot_ambient = Sound('minecraft:entity.ocelot.ambient');
 
   static const Sound entity_ocelot_death = Sound('minecraft:entity.ocelot.death');
@@ -2143,6 +2249,8 @@ class Sounds {
   static const Sound entity_parrot_hurt = Sound('minecraft:entity.parrot.hurt');
 
   static const Sound entity_parrot_imitate_blaze = Sound('minecraft:entity.parrot.imitate.blaze');
+
+  static const Sound entity_parrot_imitate_bogged = Sound('minecraft:entity.parrot.imitate.bogged');
 
   static const Sound entity_parrot_imitate_breeze = Sound('minecraft:entity.parrot.imitate.breeze');
 
@@ -2700,6 +2808,10 @@ class Sounds {
 
   static const Sound entity_warden_tendril_clicks = Sound('minecraft:entity.warden.tendril_clicks');
 
+  static const Sound entity_wind_charge_throw = Sound('minecraft:entity.wind_charge.throw');
+
+  static const Sound entity_wind_charge_wind_burst = Sound('minecraft:entity.wind_charge.wind_burst');
+
   static const Sound entity_witch_ambient = Sound('minecraft:entity.witch.ambient');
 
   static const Sound entity_witch_celebrate = Sound('minecraft:entity.witch.celebrate');
@@ -2808,6 +2920,12 @@ class Sounds {
 
   static const Sound entity_zombified_piglin_hurt = Sound('minecraft:entity.zombified_piglin.hurt');
 
+  static const Sound event_mob_effect_bad_omen = Sound('minecraft:event.mob_effect.bad_omen');
+
+  static const Sound event_mob_effect_raid_omen = Sound('minecraft:event.mob_effect.raid_omen');
+
+  static const Sound event_mob_effect_trial_omen = Sound('minecraft:event.mob_effect.trial_omen');
+
   static const Sound event_raid_horn = Sound('minecraft:event.raid.horn');
 
   static const Sound intentionally_empty = Sound('minecraft:intentionally_empty');
@@ -2829,6 +2947,10 @@ class Sounds {
   static const Sound item_armor_equip_netherite = Sound('minecraft:item.armor.equip_netherite');
 
   static const Sound item_armor_equip_turtle = Sound('minecraft:item.armor.equip_turtle');
+
+  static const Sound item_armor_equip_wolf = Sound('minecraft:item.armor.equip_wolf');
+
+  static const Sound item_armor_unequip_wolf = Sound('minecraft:item.armor.unequip_wolf');
 
   static const Sound item_axe_scrape = Sound('minecraft:item.axe.scrape');
 
@@ -2946,7 +3068,15 @@ class Sounds {
 
   static const Sound item_lodestone_compass_lock = Sound('minecraft:item.lodestone_compass.lock');
 
+  static const Sound item_mace_smash_air = Sound('minecraft:item.mace.smash_air');
+
+  static const Sound item_mace_smash_ground = Sound('minecraft:item.mace.smash_ground');
+
+  static const Sound item_mace_smash_ground_heavy = Sound('minecraft:item.mace.smash_ground_heavy');
+
   static const Sound item_nether_wart_plant = Sound('minecraft:item.nether_wart.plant');
+
+  static const Sound item_ominous_bottle_dispose = Sound('minecraft:item.ominous_bottle.dispose');
 
   static const Sound item_shield_block = Sound('minecraft:item.shield.block');
 
@@ -2975,6 +3105,14 @@ class Sounds {
   static const Sound item_trident_throw = Sound('minecraft:item.trident.throw');
 
   static const Sound item_trident_thunder = Sound('minecraft:item.trident.thunder');
+
+  static const Sound item_wolf_armor_break = Sound('minecraft:item.wolf_armor.break');
+
+  static const Sound item_wolf_armor_crack = Sound('minecraft:item.wolf_armor.crack');
+
+  static const Sound item_wolf_armor_damage = Sound('minecraft:item.wolf_armor.damage');
+
+  static const Sound item_wolf_armor_repair = Sound('minecraft:item.wolf_armor.repair');
 
   static const Sound music_creative = Sound('minecraft:music.creative');
 
@@ -3050,6 +3188,10 @@ class Sounds {
 
   static const Sound music_disc_chirp = Sound('minecraft:music_disc.chirp');
 
+  static const Sound music_disc_creator = Sound('minecraft:music_disc.creator');
+
+  static const Sound music_disc_creator_music_box = Sound('minecraft:music_disc.creator_music_box');
+
   static const Sound music_disc_far = Sound('minecraft:music_disc.far');
 
   static const Sound music_disc_mall = Sound('minecraft:music_disc.mall');
@@ -3059,6 +3201,8 @@ class Sounds {
   static const Sound music_disc_otherside = Sound('minecraft:music_disc.otherside');
 
   static const Sound music_disc_pigstep = Sound('minecraft:music_disc.pigstep');
+
+  static const Sound music_disc_precipice = Sound('minecraft:music_disc.precipice');
 
   static const Sound music_disc_relic = Sound('minecraft:music_disc.relic');
 
