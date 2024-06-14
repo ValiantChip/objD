@@ -49,9 +49,9 @@ class Raycast extends RestActionAble {
     this.step = 1,
     this.through = Blocks.air,
     this.ray,
-    this.onhit = const [],
+    List<Widget>? onhit,
     this.scoreName = 'objd_count',
-  });
+  }) : onhit = onhit ?? [];
 
   Widget _hit() {
     return _isHit.add();
