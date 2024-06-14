@@ -307,7 +307,7 @@ class DataComponent {
       map["\"minecraft:banner_patterns\""]=banner_patterns!.map((p) => p.getMap()).toList();
     }
     if(base_color != null) {
-      map["\"minecraft:base_color\""]=base_color.toString();
+      map["\"minecraft:base_color\""]=base_color!.toDecimal();
     }
     if(bees != null) {
       map["\"minecraft:bees\""]=bees!.map((b) => b.getMap()).toList();
@@ -403,7 +403,7 @@ class DataComponent {
       map["\"minecraft:lore\""]=lore!.map((t) => t.toJson()).toList();
     }
     if(map_color != null){
-      map["\"minecraft:map_color\""]=map_color.toString();
+      map["\"minecraft:map_color\""]=map_color!.toDecimal();
     }
     if(map_decorations != null){
       map["\"minecraft:map_decorations\""]=map_decorations!.map((key, value) => MapEntry(key, value.getMap()));

@@ -15,7 +15,7 @@ class PotionContents {
       map['potion'] = potion!.name;
     }
     if(custom_color != null){
-      map['custom_color'] = custom_color!;
+      map['custom_color'] = custom_color!.toDecimal();
     }
     if(custom_effects != null){
       map['custom_effects'] = custom_effects!.map((e) => e.getMap()).toList();
