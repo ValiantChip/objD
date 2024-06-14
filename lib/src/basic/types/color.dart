@@ -48,6 +48,6 @@ class Color {
   }
 
   int toDecimal() {
-    return int.parse(_color, radix: 16);
+    return int.parse(_color.replaceFirst("#", ""), radix: 16);
   }
 }
