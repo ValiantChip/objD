@@ -9,24 +9,21 @@ import 'package:objd/src/build/build.dart';
 class Attribute extends RestActionAble {
   final Entity target;
   final AttributeType attribute;
-  String? uuid;
-  String? name;
+  String? id;
   double? scale;
   double? value;
   AttributeModifier? modifyType;
   final _AttributeType _type;
 
-  /// adds a modifier with an uuid
+  /// adds a modifier with an id
   Attribute.add(
     this.target,
     this.attribute, {
-    required this.uuid,
     required this.value,
-    required this.name,
+    required this.id,
     this.modifyType = AttributeModifier.add,
   })  : _type = _AttributeType.add,
-        assert(name != null),
-        assert(uuid != null),
+        assert(id != null),
         assert(value != null);
 
   /// sets the base modifier to a value
@@ -37,13 +34,13 @@ class Attribute extends RestActionAble {
   })  : _type = _AttributeType.set,
         assert(value != null);
 
-  /// removes a modifier with an uuid again
+  /// removes a modifier with an id again
   Attribute.remove(
     this.target,
     this.attribute, {
-    required this.uuid,
+    required this.id,
   })  : _type = _AttributeType.remove,
-        assert(uuid != null);
+        assert(id != null);
 
   ///gets the calculated modifier(with base, armor and custom)
   Attribute.get(
@@ -59,14 +56,14 @@ class Attribute extends RestActionAble {
     this.scale,
   }) : _type = _AttributeType.get_base;
 
-  /// gets the modifiers value by uuid
+  /// gets the modifiers value by id
   Attribute.get_modifier(
     this.target,
     this.attribute, {
-    required this.uuid,
+    required this.id,
     this.scale,
   })  : _type = _AttributeType.get_modifier,
-        assert(uuid != null);
+        assert(id != null);
 
   @override
   Widget generate(Context context) {
@@ -80,19 +77,19 @@ class Attribute extends RestActionAble {
         cmd += 'base get';
         break;
       case _AttributeType.get_modifier:
-        cmd += 'modifier value get $uuid';
+        cmd += 'modifier value get $id';
         break;
       case _AttributeType.remove:
-        cmd += 'modifier remove $uuid';
+        cmd += 'modifier remove $id';
         break;
       case _AttributeType.add:
         var modify = 'add';
-        if (modifyType == AttributeModifier.multiply) {
-          modify = 'multiply';
-        } else if (modifyType == AttributeModifier.multiply_base) {
-          modify = 'multiply_base';
+        if (modifyType == AttributeModifier.add_multiplied_total) {
+          modify = 'add_multiplied_total';
+        } else if (modifyType == AttributeModifier.add_multiplied_base) {
+          modify = 'add_multiplied_base';
         }
-        cmd += 'modifier add $uuid $name $value $modify';
+        cmd += 'modifier add $id $value $modify';
         break;
 
       default:
@@ -105,5 +102,5 @@ class Attribute extends RestActionAble {
   }
 }
 
-enum AttributeModifier { add, multiply, multiply_base }
+enum AttributeModifier { add, add_multiplied_base, add_multiplied_total }
 enum _AttributeType { add, set, get, get_base, get_modifier, remove }
