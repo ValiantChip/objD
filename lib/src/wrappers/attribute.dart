@@ -21,7 +21,7 @@ class Attribute extends RestActionAble {
     this.attribute, {
     required this.value,
     required this.id,
-    this.modifyType = AttributeModifier.add,
+    this.modifyType = AttributeModifier.add_value,
   })  : _type = _AttributeType.add,
         assert(id != null),
         assert(value != null);
@@ -83,7 +83,7 @@ class Attribute extends RestActionAble {
         cmd += 'modifier remove $id';
         break;
       case _AttributeType.add:
-        var modify = 'add';
+        var modify = 'add_value';
         if (modifyType == AttributeModifier.add_multiplied_total) {
           modify = 'add_multiplied_total';
         } else if (modifyType == AttributeModifier.add_multiplied_base) {
@@ -102,5 +102,5 @@ class Attribute extends RestActionAble {
   }
 }
 
-enum AttributeModifier { add, add_multiplied_base, add_multiplied_total }
+enum AttributeModifier { add_value, add_multiplied_base, add_multiplied_total }
 enum _AttributeType { add, set, get, get_base, get_modifier, remove }
