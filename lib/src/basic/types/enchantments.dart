@@ -8,7 +8,7 @@ class Enchantments {
   const Enchantments({required this.enchantments, this.show_in_tooltip});
 
   Map<String, dynamic> getMap(){
-    Map<String, dynamic> map = enchantments.map((e, i) => MapEntry(e.name, i));
+    Map<String, dynamic> map = enchantments.map((e, i) => MapEntry("'${e.name}'", i));
     if(show_in_tooltip != null){
       map['show_in_tooltip'] = show_in_tooltip;
     }
