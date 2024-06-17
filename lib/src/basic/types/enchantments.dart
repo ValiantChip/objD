@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:gson/gson.dart';
 import 'package:objd/src/basic/types/enchantment.dart';
 
@@ -8,7 +10,7 @@ class Enchantments {
   const Enchantments({required this.enchantments, this.show_in_tooltip});
 
   Map<String, dynamic> getMap(){
-    Map<String, dynamic> map = enchantments.map((e, i) => MapEntry("'${e.name}'", i));
+    Map<String, dynamic> map = enchantments.map((e, i) => MapEntry(e.name, i));
     if(show_in_tooltip != null){
       map['show_in_tooltip'] = show_in_tooltip;
     }
@@ -17,6 +19,6 @@ class Enchantments {
   }
 
   String getNbt(){
-    return gson.encode(getMap());
+    return json.encode(getMap());
   }
 }
