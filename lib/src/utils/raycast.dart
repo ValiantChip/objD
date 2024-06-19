@@ -5,9 +5,9 @@ import 'package:objd/core.dart';
 class Raycast extends RestActionAble {
   int? id;
   Entity entity;
-  int? max;
+  int max;
   double step;
-  Block through;
+  Block? through;
   Widget Function(Function, Function)? ray;
   List<Widget> onhit;
   bool _useStop = false;
@@ -45,7 +45,7 @@ class Raycast extends RestActionAble {
 
   Raycast(
     this.entity, {
-    this.max,
+    this.max = 10000,
     this.step = 1,
     this.through = Blocks.air,
     this.ray,
@@ -68,14 +68,14 @@ class Raycast extends RestActionAble {
     int? maxStep;
     id = IndexedFile.getIndexed('ray') + 1;
 
-    if (max != null && max! > 0) {
+    if (max > 0) {
       maxScore = Score(Entity.Self(), scoreName);
-      maxStep = max! ~/ step;
+      maxStep = max ~/ step;
     }
 
     var children = <Widget>[
-      If.not(through, then: [_isHit.add()])
     ];
+    if(through != null) children.add(If.not(through, then: [_isHit.add()]));
     if (ray != null) children.insert(0, ray!(_stop, _hit));
 
     /// all and conditions
