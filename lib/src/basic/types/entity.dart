@@ -598,7 +598,7 @@ class Entity extends GsonValue implements EntityClass {
   ///```
 
   RestActionAble raycast({
-    int? max,
+    int max = 10000,
     double step = 1,
     Block through = Blocks.air,
     Widget Function(Function, Function)? ray,
