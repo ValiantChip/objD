@@ -12,6 +12,7 @@ class Raycast extends RestActionAble {
   List<Widget> onhit;
   bool _useStop = false;
   String scoreName;
+  Facing anchored;
 
   final _isHit = Tag('objd_ray_hit', entity: Entity.Selected());
   final _isStopped = Tag('objd_ray_stop', entity: Entity.Selected());
@@ -51,6 +52,7 @@ class Raycast extends RestActionAble {
     this.ray,
     List<Widget>? onhit,
     this.scoreName = 'objd_count',
+    this.anchored = Facing.eyes
   }) : onhit = onhit ?? [];
 
   Widget _hit() {
@@ -118,7 +120,7 @@ class Raycast extends RestActionAble {
     ]);
     if (entity.selector != 's') ex = ex.asat(entity);
     ex = ex
-        .anchored(Facing.eyes)
+        .anchored(anchored)
         .positioned(Location.local())
         .anchored(Facing.feet);
 
