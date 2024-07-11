@@ -1,63 +1,66 @@
-typedef Vec3 = (double, double, double);
+import "package:vector_math/vector_math.dart";
+export 'package:vector_math/vector_math.dart';
 
 class Transformation {
   /// Rotation after scaling
-  final Vec3 right_rotation;
+  final Quaternion right_rotation;
 
   /// Rotation before scaling
-  final Vec3 left_rotation;
+  final Quaternion left_rotation;
 
   /// scaling(1 being the default size)
-  final Vec3 scale;
+  final Vector3 scale;
 
   /// translation, shifting the display
-  final Vec3 translation;
-
+  final Vector3 translation;
   /// An object describing the scale, rotation and translation
   Transformation({
-    this.right_rotation = (0, 0, 0),
-    this.left_rotation = (0, 0, 0),
-    this.scale = (1, 1, 1),
-    this.translation = (0, 0, 0),
-  });
+    Quaternion? right_rotation,
+    Quaternion? left_rotation,
+    Vector3? scale,
+    Vector3? translation,
+  }) : 
+    right_rotation = right_rotation ?? Quaternion.identity(),
+    left_rotation = left_rotation ?? Quaternion.identity(),
+    scale = scale ?? Vector3.all(1),
+    translation = translation ?? Vector3.all(0)
+    ;
+    
 
   /// scales display entity
-  factory Transformation.scale(double x, double y, double z) =>
-      Transformation(scale: (x, y, z));
+  scaled(double x, double y, double z) =>
+      Transformation(scale: Vector3(x, y, z));
 
   /// shifts display entity
-  factory Transformation.translate(double x, double y, double z) =>
-      Transformation(translation: (x, y, z));
+  translated(double x, double y, double z) =>
+      Transformation(translation: Vector3(x, y, z));
 
   /// rotates display entity
-  factory Transformation.rotate(double x, double y, double z) =>
-      Transformation(right_rotation: (x, y, z));
+  rotated(double x, double y, double z) =>
+      Transformation(left_rotation: Quaternion.euler(y, z, x));
 
   /// scales all axies uniformly
-  factory Transformation.scaleAll(double scale) =>
-      Transformation(scale: (scale, scale, scale));
+  allScaled(double scale) =>
+      Transformation(scale: Vector3(scale, scale, scale));
 
   factory Transformation.centered({
-    Vec3 scale = (1, 1, 1),
-    Vec3 right_rotation = (0, 0, 0),
-    Vec3 left_rotation = (0, 0, 0),
-  }) =>
-      Transformation(
-        scale: scale,
-        right_rotation: right_rotation,
-        left_rotation: left_rotation,
-        translation: (-scale.$1 / 2, -scale.$2 / 2, -scale.$3 / 2),
+    Vector3? scale,
+    Quaternion? right_rotation,
+    Quaternion? left_rotation,
+  }) {
+      Vector3 fixedScale = scale ?? Vector3.all(1);
+      return Transformation(
+        scale: fixedScale,
+        right_rotation: right_rotation ?? Quaternion.identity(),
+        left_rotation: left_rotation ?? Quaternion.identity(),
+        translation: fixedScale.scaled(-(1/2)),
       );
-
-  List<double> _toList(Vec3 vec) {
-    final (x, y, z) = vec;
-    return [x, y, z];
   }
 
   Map<String, List<double>> toMap() => {
-        'right_rotation': [..._toList(right_rotation), 1],
-        'left_rotation': [..._toList(left_rotation), 1],
-        'scale': _toList(scale),
-        'translation': _toList(translation),
+        'right_rotation': right_rotation.storage,
+        'left_rotation': left_rotation.storage,
+        'scale': scale.storage,
+        'translation': translation.storage,
       };
 }

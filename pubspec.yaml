@@ -14,6 +14,7 @@ dependencies:
   deep_collection: ^1.0.2
   gson: ^0.1.6-dev
   meta: ^1.9.1
+  vector_math: 2.1.4
 dev_dependencies:
   lints: ^3.0.0
   test: ^1.24.3
