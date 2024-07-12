@@ -45,6 +45,10 @@ void scan(
     if (!pack.addScoreboard(wid.name)) return;
   }
 
+  if(wid is Nil) {
+    return;
+  }
+
   // Other Widget
   dynamic child = wid.generate(context);
   // is module
