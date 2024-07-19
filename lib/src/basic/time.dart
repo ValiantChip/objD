@@ -1,5 +1,7 @@
 const int _TICKSINDAY = 24000;
 const int _TICKSINSECOND = 20;
+const int _TICKSINMINUTE = _TICKSINSECOND * 60;
+const int _TICKSINHOUR = _TICKSINMINUTE * 60;
 
 /// Object that represents time in minecraft. Usually translated into ticks (20ticks = 1 second).
 /// A **more intuitive** way is to use built in getters on the `num` type and operators.
@@ -14,6 +16,8 @@ class Time {
   final int ticks;
   double get days => ticks / _TICKSINDAY;
   double get seconds => ticks / _TICKSINSECOND;
+  double get minutes => ticks / _TICKSINMINUTE;
+  double get hours => ticks /  _TICKSINHOUR;
   final bool isInfinite;
 
   /// Object that represents time in minecraft. Usually translated into ticks (20ticks = 1 second).
@@ -57,10 +61,13 @@ class Time {
       : ticks = seconds * _TICKSINSECOND,
         isInfinite = false;
   const Time.minutes(int minutes)
-      : ticks = minutes * 60 * _TICKSINSECOND,
+      : ticks = minutes * _TICKSINMINUTE,
         isInfinite = false;
   const Time.days(int days)
       : ticks = days * _TICKSINDAY,
+        isInfinite = false;
+  const Time.hours(int hours)
+      : ticks = hours * _TICKSINHOUR,
         isInfinite = false;
 
   /// For a handy interface which does the conversions automatically, use `Time.duration`:
@@ -84,10 +91,15 @@ class Time {
     num? days,
     num? seconds,
     num? minutes,
+    num? hours
   }) =>
       Time(ticks +
-          ((days ?? 0) * _TICKSINDAY +
-                  (seconds ?? 0 + (minutes ?? 0) * 60) * _TICKSINSECOND)
+          (
+            (days ?? 0) * _TICKSINDAY +
+            (seconds ?? 0) * _TICKSINSECOND + 
+            (minutes ?? 0) * _TICKSINMINUTE   + 
+            (hours ?? 0) * _TICKSINHOUR
+          )
               .toInt());
 
   /// In commands when Time is used, string are generated dynamically.
@@ -164,5 +176,6 @@ extension NumTimeExtensions on num {
   Time get ticks => Time(round());
   Time get seconds => Time.duration(seconds: this);
   Time get minutes => Time.duration(minutes: this);
+  Time get hours => Time.duration(hours: this);
   Time get days => Time.duration(days: this);
 }
