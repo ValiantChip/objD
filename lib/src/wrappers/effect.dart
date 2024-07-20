@@ -25,7 +25,7 @@ class Effect extends RestActionAble implements GsonValue {
     this.effect, {
     this.entity,
     this.duration = const Time.seconds(30),
-    this.amplifier = 1,
+    this.amplifier = 0,
     this.showParticles = true,
   }) : _type = 'give' {
     entity ??= Entity.Selected();
