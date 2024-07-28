@@ -99,7 +99,7 @@ class Score extends RestActionAble {
     this.type = 'dummy',
   })  : score = 'objd_consts',
         entity = Entity.PlayerName(
-          '#$number',
+          '\$$number',
         ) {
     if (Scoreboard.prefix != null && !score.contains(Scoreboard.prefix!)) {
       score = Scoreboard.prefix! + score;
