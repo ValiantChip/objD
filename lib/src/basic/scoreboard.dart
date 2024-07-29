@@ -17,6 +17,7 @@ class Scoreboard extends RestActionAble {
   String name;
   late String type;
   bool? useHearts;
+  bool addIntoLoad;
 
   /// A scoreboard objective holds values, kind a like a Variable inside Minecraft.
   ///
@@ -27,7 +28,7 @@ class Scoreboard extends RestActionAble {
     this.name, {
     this.type = 'dummy',
     TextComponent? display,
-    bool addIntoLoad = true,
+    this.addIntoLoad = true,
   }) : subcommand = addIntoLoad ? 'add' : 'addHere' {
     if (display != null) type += ' ${display.toJson()!}';
     prefixName();
@@ -77,13 +78,13 @@ class Scoreboard extends RestActionAble {
 
   /// The `Scoreboard.add` constructor does exactly the same as Scoreboard but puts the result without checking in the current file.
   Scoreboard.add(this.name, {this.type = 'dummy', TextComponent? display})
-      : subcommand = 'addHere' {
+      : subcommand = 'addHere', addIntoLoad = true {
     if (display != null) type += ' ${display.toJson()!}';
     prefixName();
   }
 
   /// `Scoreboard.remove` removes an objective by its name again.
-  Scoreboard.remove(this.name) : subcommand = 'remove' {
+  Scoreboard.remove(this.name) : subcommand = 'remove', addIntoLoad = false {
     prefixName();
   }
 
@@ -96,13 +97,13 @@ class Scoreboard extends RestActionAble {
 
   Scoreboard.setdisplay(this.name, {String display = 'sidebar'})
       : subcommand = 'setdisplay',
-        type = display {
+        type = display , addIntoLoad = false{
     prefixName();
   }
   Scoreboard.modify(
     this.name, {
     this.useHearts = false,
-  }) : subcommand = 'modify';
+  }) : subcommand = 'modify', addIntoLoad = false;
 
   void prefixName() {
     if (prefix != null && !name.contains(prefix!)) name = prefix! + name;
@@ -139,21 +140,21 @@ class Scoreboard extends RestActionAble {
   }
 
   Score operator [](dynamic target) {
-    if (target is Entity) return Score(target, name, type: type);
+    if (target is Entity) return Score(target, name, type: type, addNew: addIntoLoad);
     if (target is String) {
-      return Score(Entity.PlayerName(target), name, type: type);
+      return Score(Entity.PlayerName(target), name, type: type, addNew: addIntoLoad);
     }
     throw ('The operator [] just accepts Entity or String!');
   }
 
   /// Scoreboard.self is a shortcut for Scoreboard[Entity.Self()]
-  Score get self => Score(Entity.Self(), name);
+  Score get self => Score(Entity.Self(), name, addNew: addIntoLoad);
 
   /// Scoreboard.all is a shortcut for Scoreboard[Entity.All()]
-  Score get all => Score(Entity.All(), name);
+  Score get all => Score(Entity.All(), name, addNew: addIntoLoad);
 
   /// Scoreboard.player is a shortcut for Scoreboard[Entity.Player()]
-  Score get player => Score(Entity.Player(), name);
+  Score get player => Score(Entity.Player(), name, addNew: addIntoLoad);
 
   @override
   Map toMap() {
