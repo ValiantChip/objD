@@ -104,8 +104,8 @@ class Context {
   }
 
   String stringArgument(String name) {
-    macros['\${$name}'] = name;
-    return '\${$name}';
+    macros['\$($name)'] = name;
+    return '\$($name)';
   }
 
   int intArgument(String name) {

@@ -91,7 +91,7 @@ class Score extends RestActionAble {
   /// **Example:**
   /// ```dart
   /// Score.con(5)
-  /// ⇒ scoreboard players set #5 objd_consts 5
+  /// ⇒ scoreboard players set $5 objd_consts 5
   /// ```
   Score.con(
     int number, {

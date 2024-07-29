@@ -69,7 +69,7 @@ class Command extends RestActionAble {
       _command = '\$${context.macros.entries.where((e) => e.value != null).fold(
             _command,
             (command, entry) =>
-                command.replaceAll(entry.key, '\${${entry.value}}'),
+                command.replaceAll(entry.key, '\$(${entry.value})'),
           )}';
     }
     return Text(_command);
