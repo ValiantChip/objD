@@ -118,6 +118,8 @@ class File extends Widget {
       ? p.append(path, type: 'mcfunction')
       : Path.from(path, type: 'mcfunction');
 
+  FileExecuter executer(FileArgument argument) => FileExecuter(this, argument);
+
   @override
   Command generate(Context context) {
     if (isRecursive != null && isRecursive!) path = context.file;
@@ -141,3 +143,58 @@ class File extends Widget {
         'File': {'path': path, 'child': child?.toMap(), 'execute': execute}
       };
 }
+
+class FileExecuter extends Widget {
+  final File file;
+  final FileArgument argument;
+
+  FileExecuter(this.file, this.argument);
+
+  @override
+  Command generate(Context context){
+    String path = file.path;
+    String pack = file.pack ?? context.packId;
+
+    return Command('function $pack:$path${argument.asArg(context)}');
+  }
+
+}
+
+abstract class FileArgument {
+  String asArg(Context context);
+}
+
+class MapArgument implements FileArgument {
+  final Map<String, dynamic> content;
+  MapArgument(this.content);
+
+  @override
+  String asArg(Context context) => ' ${gson.encode(content)}';
+}
+
+class EntityArgument implements FileArgument {
+  final Entity e;
+  EntityArgument(this.e);
+
+  @override
+  String asArg(Context context) => ' with entity $e';
+}
+
+class BlockArgument implements FileArgument {
+  final Block b;
+  BlockArgument(this.b);
+
+  @override
+  String asArg(Context context) => ' with block $b';
+}
+
+class StorageArgument implements FileArgument {
+  final String name;
+  final String key;
+
+  StorageArgument(this.name, this.key);
+
+  @override
+  String asArg(Context context) => ' with storage ${DataStorage(name).toString(context)} $key';
+}
+

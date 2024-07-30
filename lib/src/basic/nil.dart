@@ -1,4 +1,3 @@
-import 'package:objd/core.dart';
 import 'package:objd/src/basic/widget.dart';
 import 'package:objd/src/build/context.dart';
 
