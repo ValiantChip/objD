@@ -6,7 +6,7 @@ class Attributes {
   import cog
   import requests
 
-  version = '1.21/releases/1.21'
+  version = '1.21/releases/1.21.4'
 
   res = requests.get(f'https://raw.githubusercontent.com/PixiGeko/Minecraft-generated-data/master/{version}/custom-generated/registries/attribute.txt')
   blocks = []
@@ -17,98 +17,101 @@ class Attributes {
       cog.outl(f"/// _({full})_")
       cog.outl(f"static const AttributeType {id} = AttributeType('{full}');\n")
   ]]]*/
-  /// _(minecraft:generic.armor)_
-  static const AttributeType generic_armor = AttributeType('minecraft:generic.armor');
+  /// _(minecraft:armor)_
+  static const AttributeType armor = AttributeType('minecraft:armor');
 
-  /// _(minecraft:generic.armor_toughness)_
-  static const AttributeType generic_armor_toughness = AttributeType('minecraft:generic.armor_toughness');
+  /// _(minecraft:armor_toughness)_
+  static const AttributeType armor_toughness = AttributeType('minecraft:armor_toughness');
 
-  /// _(minecraft:generic.attack_damage)_
-  static const AttributeType generic_attack_damage = AttributeType('minecraft:generic.attack_damage');
+  /// _(minecraft:attack_damage)_
+  static const AttributeType attack_damage = AttributeType('minecraft:attack_damage');
 
-  /// _(minecraft:generic.attack_knockback)_
-  static const AttributeType generic_attack_knockback = AttributeType('minecraft:generic.attack_knockback');
+  /// _(minecraft:attack_knockback)_
+  static const AttributeType attack_knockback = AttributeType('minecraft:attack_knockback');
 
-  /// _(minecraft:generic.attack_speed)_
-  static const AttributeType generic_attack_speed = AttributeType('minecraft:generic.attack_speed');
+  /// _(minecraft:attack_speed)_
+  static const AttributeType attack_speed = AttributeType('minecraft:attack_speed');
 
-  /// _(minecraft:generic.burning_time)_
-  static const AttributeType generic_burning_time = AttributeType('minecraft:generic.burning_time');
+  /// _(minecraft:block_break_speed)_
+  static const AttributeType block_break_speed = AttributeType('minecraft:block_break_speed');
 
-  /// _(minecraft:generic.explosion_knockback_resistance)_
-  static const AttributeType generic_explosion_knockback_resistance = AttributeType('minecraft:generic.explosion_knockback_resistance');
+  /// _(minecraft:block_interaction_range)_
+  static const AttributeType block_interaction_range = AttributeType('minecraft:block_interaction_range');
 
-  /// _(minecraft:generic.fall_damage_multiplier)_
-  static const AttributeType generic_fall_damage_multiplier = AttributeType('minecraft:generic.fall_damage_multiplier');
+  /// _(minecraft:burning_time)_
+  static const AttributeType burning_time = AttributeType('minecraft:burning_time');
 
-  /// _(minecraft:generic.flying_speed)_
-  static const AttributeType generic_flying_speed = AttributeType('minecraft:generic.flying_speed');
+  /// _(minecraft:entity_interaction_range)_
+  static const AttributeType entity_interaction_range = AttributeType('minecraft:entity_interaction_range');
 
-  /// _(minecraft:generic.follow_range)_
-  static const AttributeType generic_follow_range = AttributeType('minecraft:generic.follow_range');
+  /// _(minecraft:explosion_knockback_resistance)_
+  static const AttributeType explosion_knockback_resistance = AttributeType('minecraft:explosion_knockback_resistance');
 
-  /// _(minecraft:generic.gravity)_
-  static const AttributeType generic_gravity = AttributeType('minecraft:generic.gravity');
+  /// _(minecraft:fall_damage_multiplier)_
+  static const AttributeType fall_damage_multiplier = AttributeType('minecraft:fall_damage_multiplier');
 
-  /// _(minecraft:generic.jump_strength)_
-  static const AttributeType generic_jump_strength = AttributeType('minecraft:generic.jump_strength');
+  /// _(minecraft:flying_speed)_
+  static const AttributeType flying_speed = AttributeType('minecraft:flying_speed');
 
-  /// _(minecraft:generic.knockback_resistance)_
-  static const AttributeType generic_knockback_resistance = AttributeType('minecraft:generic.knockback_resistance');
+  /// _(minecraft:follow_range)_
+  static const AttributeType follow_range = AttributeType('minecraft:follow_range');
 
-  /// _(minecraft:generic.luck)_
-  static const AttributeType generic_luck = AttributeType('minecraft:generic.luck');
+  /// _(minecraft:gravity)_
+  static const AttributeType gravity = AttributeType('minecraft:gravity');
 
-  /// _(minecraft:generic.max_absorption)_
-  static const AttributeType generic_max_absorption = AttributeType('minecraft:generic.max_absorption');
+  /// _(minecraft:jump_strength)_
+  static const AttributeType jump_strength = AttributeType('minecraft:jump_strength');
 
-  /// _(minecraft:generic.max_health)_
-  static const AttributeType generic_max_health = AttributeType('minecraft:generic.max_health');
+  /// _(minecraft:knockback_resistance)_
+  static const AttributeType knockback_resistance = AttributeType('minecraft:knockback_resistance');
 
-  /// _(minecraft:generic.movement_efficiency)_
-  static const AttributeType generic_movement_efficiency = AttributeType('minecraft:generic.movement_efficiency');
+  /// _(minecraft:luck)_
+  static const AttributeType luck = AttributeType('minecraft:luck');
 
-  /// _(minecraft:generic.movement_speed)_
-  static const AttributeType generic_movement_speed = AttributeType('minecraft:generic.movement_speed');
+  /// _(minecraft:max_absorption)_
+  static const AttributeType max_absorption = AttributeType('minecraft:max_absorption');
 
-  /// _(minecraft:generic.oxygen_bonus)_
-  static const AttributeType generic_oxygen_bonus = AttributeType('minecraft:generic.oxygen_bonus');
+  /// _(minecraft:max_health)_
+  static const AttributeType max_health = AttributeType('minecraft:max_health');
 
-  /// _(minecraft:generic.safe_fall_distance)_
-  static const AttributeType generic_safe_fall_distance = AttributeType('minecraft:generic.safe_fall_distance');
+  /// _(minecraft:mining_efficiency)_
+  static const AttributeType mining_efficiency = AttributeType('minecraft:mining_efficiency');
 
-  /// _(minecraft:generic.scale)_
-  static const AttributeType generic_scale = AttributeType('minecraft:generic.scale');
+  /// _(minecraft:movement_efficiency)_
+  static const AttributeType movement_efficiency = AttributeType('minecraft:movement_efficiency');
 
-  /// _(minecraft:generic.step_height)_
-  static const AttributeType generic_step_height = AttributeType('minecraft:generic.step_height');
+  /// _(minecraft:movement_speed)_
+  static const AttributeType movement_speed = AttributeType('minecraft:movement_speed');
 
-  /// _(minecraft:generic.water_movement_efficiency)_
-  static const AttributeType generic_water_movement_efficiency = AttributeType('minecraft:generic.water_movement_efficiency');
+  /// _(minecraft:oxygen_bonus)_
+  static const AttributeType oxygen_bonus = AttributeType('minecraft:oxygen_bonus');
 
-  /// _(minecraft:player.block_break_speed)_
-  static const AttributeType player_block_break_speed = AttributeType('minecraft:player.block_break_speed');
+  /// _(minecraft:safe_fall_distance)_
+  static const AttributeType safe_fall_distance = AttributeType('minecraft:safe_fall_distance');
 
-  /// _(minecraft:player.block_interaction_range)_
-  static const AttributeType player_block_interaction_range = AttributeType('minecraft:player.block_interaction_range');
+  /// _(minecraft:scale)_
+  static const AttributeType scale = AttributeType('minecraft:scale');
 
-  /// _(minecraft:player.entity_interaction_range)_
-  static const AttributeType player_entity_interaction_range = AttributeType('minecraft:player.entity_interaction_range');
+  /// _(minecraft:sneaking_speed)_
+  static const AttributeType sneaking_speed = AttributeType('minecraft:sneaking_speed');
 
-  /// _(minecraft:player.mining_efficiency)_
-  static const AttributeType player_mining_efficiency = AttributeType('minecraft:player.mining_efficiency');
+  /// _(minecraft:spawn_reinforcements)_
+  static const AttributeType spawn_reinforcements = AttributeType('minecraft:spawn_reinforcements');
 
-  /// _(minecraft:player.sneaking_speed)_
-  static const AttributeType player_sneaking_speed = AttributeType('minecraft:player.sneaking_speed');
+  /// _(minecraft:step_height)_
+  static const AttributeType step_height = AttributeType('minecraft:step_height');
 
-  /// _(minecraft:player.submerged_mining_speed)_
-  static const AttributeType player_submerged_mining_speed = AttributeType('minecraft:player.submerged_mining_speed');
+  /// _(minecraft:submerged_mining_speed)_
+  static const AttributeType submerged_mining_speed = AttributeType('minecraft:submerged_mining_speed');
 
-  /// _(minecraft:player.sweeping_damage_ratio)_
-  static const AttributeType player_sweeping_damage_ratio = AttributeType('minecraft:player.sweeping_damage_ratio');
+  /// _(minecraft:sweeping_damage_ratio)_
+  static const AttributeType sweeping_damage_ratio = AttributeType('minecraft:sweeping_damage_ratio');
 
-  /// _(minecraft:zombie.spawn_reinforcements)_
-  static const AttributeType zombie_spawn_reinforcements = AttributeType('minecraft:zombie.spawn_reinforcements');
+  /// _(minecraft:tempt_range)_
+  static const AttributeType tempt_range = AttributeType('minecraft:tempt_range');
+
+  /// _(minecraft:water_movement_efficiency)_
+  static const AttributeType water_movement_efficiency = AttributeType('minecraft:water_movement_efficiency');
 
   //[[[end]]]
 
@@ -118,37 +121,38 @@ class Attributes {
     for b in blocks:
       cog.outl(f'{b},')
     ]]]*/
-    generic_armor,
-    generic_armor_toughness,
-    generic_attack_damage,
-    generic_attack_knockback,
-    generic_attack_speed,
-    generic_burning_time,
-    generic_explosion_knockback_resistance,
-    generic_fall_damage_multiplier,
-    generic_flying_speed,
-    generic_follow_range,
-    generic_gravity,
-    generic_jump_strength,
-    generic_knockback_resistance,
-    generic_luck,
-    generic_max_absorption,
-    generic_max_health,
-    generic_movement_efficiency,
-    generic_movement_speed,
-    generic_oxygen_bonus,
-    generic_safe_fall_distance,
-    generic_scale,
-    generic_step_height,
-    generic_water_movement_efficiency,
-    player_block_break_speed,
-    player_block_interaction_range,
-    player_entity_interaction_range,
-    player_mining_efficiency,
-    player_sneaking_speed,
-    player_submerged_mining_speed,
-    player_sweeping_damage_ratio,
-    zombie_spawn_reinforcements,
+    armor,
+    armor_toughness,
+    attack_damage,
+    attack_knockback,
+    attack_speed,
+    block_break_speed,
+    block_interaction_range,
+    burning_time,
+    entity_interaction_range,
+    explosion_knockback_resistance,
+    fall_damage_multiplier,
+    flying_speed,
+    follow_range,
+    gravity,
+    jump_strength,
+    knockback_resistance,
+    luck,
+    max_absorption,
+    max_health,
+    mining_efficiency,
+    movement_efficiency,
+    movement_speed,
+    oxygen_bonus,
+    safe_fall_distance,
+    scale,
+    sneaking_speed,
+    spawn_reinforcements,
+    step_height,
+    submerged_mining_speed,
+    sweeping_damage_ratio,
+    tempt_range,
+    water_movement_efficiency,
     //[[[end]]]
 
   ];
